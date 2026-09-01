@@ -129,7 +129,8 @@
   .band strong,
   .final strong,
   .site-foot strong { color: #fff; }
-  /* …except the "case file" specimen, which is a light paper card */
+  /* …except inside light cards nested on those dark bands */
+  .band .card strong { color: var(--ink); }
   .specimen strong { color: inherit; }
   a { color: inherit; }
 
@@ -534,6 +535,8 @@
   .band h2 { color: #fff; }
   .band .section-head p { color: var(--on-navy-dim); }
   .band .eyebrow { color: #fff; }
+  /* light cards nested on the dark band use normal body text, not on-navy */
+  .band .card { color: var(--body); }
 
   .method-grid {
     display: grid;
