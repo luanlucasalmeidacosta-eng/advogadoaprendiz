@@ -124,6 +124,13 @@
 
   p { margin: 0; }
   strong { color: var(--ink); font-weight: 700; }
+  /* Bold text sits on dark navy in these sections — keep it white for contrast */
+  .hero strong,
+  .band strong,
+  .final strong,
+  .site-foot strong { color: #fff; }
+  /* …except the "case file" specimen, which is a light paper card */
+  .specimen strong { color: inherit; }
   a { color: inherit; }
 
   ::selection { background: var(--navy-bright); color: #fff; }
