@@ -34,12 +34,26 @@ Motivo gráfico: lascas geométricas diagonais (SVG). Fio condutor estrutural:
       publicar com autorização expressa e sem mencionar resultado de processo, valor de
       causa ou honorários (publicidade OAB). Trocar por reais ou remover a seção.
 
+## Seção "A professora"
+
+Bloco de autoridade (`#professora`, entre benefícios e prova social): retrato grande da
+Dra. Bianca + biografia com duas linhas do tempo — **Formação** e **Trajetória
+profissional** — cada item com uma elucidação do que aquela experiência agrega ao curso.
+
+**Sobre logos de terceiros:** os nomes PGFN, EY, EBRADI etc. aparecem em texto (histórico
+profissional é informação factual), mas **não** reproduzimos as marcas/brasões desses
+órgãos e empresas — colocar o logo da EY ou da PGFN numa página de venda de curso sugere
+endosso institucional que não existe (risco de marca; a política da EY veda uso do logo
+por terceiros; o brasão da PGFN é símbolo de órgão público). No lugar, cada item usa um
+selo tipográfico curto (`.cv-mono`) na identidade do próprio programa.
+
 ## Assets
 
 | Arquivo | Uso |
 | --- | --- |
 | `assets/logo-white.png` | Logo oficial (branca), cabeçalho e rodapé |
-| `assets/bianca-marques.jpg` | Foto da Dra. Bianca, bloco de credibilidade do herói |
+| `assets/bianca-marques.jpg` | Retrato quadrado, avatar do bloco de credibilidade do herói |
+| `assets/bianca-portrait.jpg` | Retrato vertical grande, seção "A professora" |
 
 ## Fonte da copy
 

@@ -340,16 +340,23 @@
     border-top: 1px solid rgba(255, 255, 255, .14);
   }
   .instructor .ini {
-    width: 44px;
-    height: 44px;
+    width: 60px;
+    height: 60px;
     border-radius: 999px;
     object-fit: cover;
-    object-position: 50% 22%;
-    border: 2px solid rgba(255, 255, 255, .25);
+    object-position: 50% 20%;
+    border: 2px solid rgba(255, 255, 255, .3);
     flex: none;
   }
-  .instructor p { font-size: .9rem; color: var(--on-navy-dim); line-height: 1.4; }
+  .instructor p { font-size: .9rem; color: var(--on-navy-dim); line-height: 1.45; }
   .instructor b { color: #fff; font-weight: 700; }
+  .instructor a {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, .35);
+    white-space: nowrap;
+  }
+  .instructor a:hover { border-bottom-color: #fff; }
 
   /* hero timeline card */
   .tl-card {
@@ -864,6 +871,102 @@
   .faq details > p { padding: 0 0 1.15rem; font-size: .96rem; }
   .faq details[open] summary { color: var(--navy-bright); }
 
+  /* ============ A PROFESSORA / CV ============ */
+  .about-grid { display: grid; gap: clamp(1.75rem, 5vw, 3.25rem); }
+  @media (min-width: 900px) { .about-grid { grid-template-columns: 336px 1fr; align-items: start; } }
+
+  @media (min-width: 900px) { .about-portrait { position: sticky; top: 5.5rem; } }
+  .about-photo { position: relative; }
+  .about-photo img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: block;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+  }
+  .about-photo::before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    right: -16px;
+    top: -16px;
+    bottom: 18px;
+    background: linear-gradient(150deg, var(--navy), var(--navy-mid));
+    border-radius: 16px;
+    clip-path: polygon(0 0, 100% 0, 100% 82%, 78% 100%, 0 100%);
+    z-index: 0;
+  }
+
+  .about-name {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--ink);
+    margin: 1.1rem 0 .2rem;
+  }
+  .about-role { font-size: .88rem; color: var(--muted); }
+
+  .about-intro { font-size: 1.05rem; }
+  .about-intro strong { color: var(--ink); }
+
+  .cv { margin-top: 2rem; }
+  .cv + .cv { margin-top: 2.4rem; }
+  .cv-label {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: .72rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--navy-bright);
+    margin: 0 0 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+  }
+  .cv-label::before { content: ""; width: 1.6rem; height: 2px; background: var(--red); display: inline-block; }
+
+  .cv-list { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
+  .cv-item { position: relative; padding: 0 0 1.6rem 1.6rem; }
+  .cv-item:last-child { padding-bottom: 0; }
+  .cv-item::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: .3rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    background: var(--navy-bright);
+    box-shadow: 0 0 0 4px var(--ground);
+  }
+  .cv-item:first-child::before { background: var(--red); }
+
+  .cv-topline { display: flex; flex-wrap: wrap; align-items: baseline; gap: .45rem .7rem; }
+  .cv-mono {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: .6rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--on-navy);
+    background: var(--navy);
+    padding: .28rem .5rem;
+    border-radius: 5px;
+    flex: none;
+    transform: translateY(-1px);
+  }
+  .cv-head { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 1rem; color: var(--ink); }
+  .cv-meta {
+    font-family: "Montserrat", sans-serif;
+    font-size: .74rem;
+    letter-spacing: .03em;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    margin: .35rem 0 0;
+  }
+  .cv-item > p:last-child { font-size: .95rem; margin-top: .55rem; }
+
   /* ============ FINAL CTA ============ */
   .final {
     position: relative;
@@ -952,7 +1055,8 @@
         <div class="instructor">
           <img class="ini" src="assets/bianca-marques.jpg" alt="Dra. Bianca Cardoso Marques" />
           <p>Curso ministrado por <b>Dra. Bianca Cardoso Marques</b><br />
-            Advogada &middot; Especialista em Direito Tributário e Empresarial</p>
+            Advogada &middot; Especialista em Direito Tributário e Empresarial &middot;
+            <a href="#professora">conheça a trajetória</a></p>
         </div>
       </div>
 
@@ -1257,6 +1361,122 @@
                 propriedade, os honorários de um trabalho tecnicamente qualificado.</span>
             </li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== A PROFESSORA ===================== -->
+  <section class="section" id="professora">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">A professora</p>
+        <h2>Quem desenvolveu o método &mdash; e por que ele funciona</h2>
+        <p>O Advogado Aprendiz não nasceu de teoria de manual. Nasceu de quem já esteve dos
+          dois lados da execução fiscal.</p>
+      </div>
+
+      <div class="about-grid reveal">
+        <div class="about-portrait">
+          <div class="about-photo">
+            <img src="assets/bianca-portrait.jpg" alt="Dra. Bianca Cardoso Marques em seu escritório" />
+          </div>
+          <p class="about-name">Dra. Bianca Cardoso Marques</p>
+          <p class="about-role">Advogada &middot; Especialista em Direito Tributário e Empresarial</p>
+        </div>
+
+        <div>
+          <p class="about-intro">
+            Da <strong>Procuradoria da Fazenda Nacional</strong>, onde acompanhou a cobrança pelo
+            lado de quem executa, ao <strong>Transfer Pricing da EY</strong> &mdash; uma das quatro
+            maiores consultorias do mundo &mdash;, até a sociedade no próprio escritório.
+            <strong>Desde 2009 no Direito Tributário</strong>, e é essa vivência, não um resumo de
+            doutrina, que está destilada em cada aula.
+          </p>
+
+          <div class="cv">
+            <p class="cv-label">Formação</p>
+            <ul class="cv-list">
+              <li class="cv-item">
+                <div class="cv-topline">
+                  <span class="cv-mono">EBRADI</span>
+                  <span class="cv-head">Pós-Graduação em Direito Tributário</span>
+                </div>
+                <p class="cv-meta">Escola Brasileira de Direito &middot; 2020</p>
+                <p>Especialização dedicada exclusivamente à matéria: CTN, legislação esparsa,
+                  contencioso administrativo e judicial, jurisprudência dos tribunais superiores.
+                  O aprofundamento que separa quem &ldquo;viu tributário na faculdade&rdquo; de quem atua
+                  na área todos os dias.</p>
+              </li>
+              <li class="cv-item">
+                <div class="cv-topline">
+                  <span class="cv-mono">Estácio</span>
+                  <span class="cv-head">LL.M. &mdash; Master of Laws em Direito Público</span>
+                </div>
+                <p class="cv-meta">Estácio &middot; 2015</p>
+                <p>Pós-graduação no ramo que rege a relação entre o Estado e o particular &mdash; o
+                  guarda-chuva onde mora o Direito Tributário: competência para tributar, limites ao
+                  poder de fiscalizar e o processo administrativo que antecede a execução fiscal.</p>
+              </li>
+              <li class="cv-item">
+                <div class="cv-topline">
+                  <span class="cv-mono">UESB</span>
+                  <span class="cv-head">Bacharel em Direito</span>
+                </div>
+                <p class="cv-meta">Universidade Estadual do Sudoeste da Bahia &middot; 2012</p>
+                <p>Graduação em universidade pública. A base &mdash; teoria geral do direito, processo
+                  civil, constitucional &mdash; que sustenta qualquer leitura técnica de um processo.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="cv">
+            <p class="cv-label">Trajetória profissional</p>
+            <ul class="cv-list">
+              <li class="cv-item">
+                <div class="cv-topline">
+                  <span class="cv-mono">M&amp;A</span>
+                  <span class="cv-head">Sócia &mdash; Marques &amp; Associados</span>
+                </div>
+                <p class="cv-meta">Advocacia Tributária e Empresarial &middot; Brumado/BA &middot; 2018 &ndash; atual</p>
+                <p>Sócia do próprio escritório, com atuação concentrada em Direito Tributário e
+                  Empresarial. É a prática de hoje &mdash; os casos reais de execução fiscal que
+                  alimentam cada aula com situação concreta, não com hipótese de manual.</p>
+              </li>
+              <li class="cv-item">
+                <div class="cv-topline">
+                  <span class="cv-mono">EY</span>
+                  <span class="cv-head">ITS &mdash; Transfer Pricing</span>
+                </div>
+                <p class="cv-meta">Ernst &amp; Young &middot; São Paulo (unidade JK) &middot; 2015 &ndash; 2017</p>
+                <p>Uma das &ldquo;Big Four&rdquo; globais de auditoria e consultoria. A área de International
+                  Tax Services / Transfer Pricing analisa, para fins fiscais, operações entre empresas
+                  do mesmo grupo em países diferentes &mdash; trabalho tributário de altíssima densidade
+                  técnica: método, documentação, enquadramento normativo e defesa de posição perante
+                  o Fisco. É o rigor de raciocínio que estrutura o método do curso.</p>
+              </li>
+              <li class="cv-item">
+                <div class="cv-topline">
+                  <span class="cv-mono">VBA</span>
+                  <span class="cv-head">Advogada &mdash; Vaz Barbosa e Associados</span>
+                </div>
+                <p class="cv-meta">2012 &ndash; 2014</p>
+                <p>Primeiros anos na advocacia privada, já em contencioso &mdash; a virada de lado da
+                  mesa: de quem acompanhava a cobrança para quem constrói a defesa do contribuinte.</p>
+              </li>
+              <li class="cv-item">
+                <div class="cv-topline">
+                  <span class="cv-mono">PGFN</span>
+                  <span class="cv-head">Estagiária &mdash; Procuradoria da Fazenda Nacional</span>
+                </div>
+                <p class="cv-meta">2009 &ndash; 2011</p>
+                <p>A PGFN inscreve os débitos em Dívida Ativa da União e ajuíza as execuções fiscais
+                  federais. Foi ali, do lado de quem cobra, que ela viu como a CDA é montada, como o
+                  Fisco decide executar e onde os próprios Procuradores enxergam fragilidade &mdash; a
+                  perspectiva &ldquo;de dentro&rdquo; que ela ensina a explorar na defesa.</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
