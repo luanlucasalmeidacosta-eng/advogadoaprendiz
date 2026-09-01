@@ -24,15 +24,22 @@ Motivo gráfico: lascas geométricas diagonais (SVG). Fio condutor estrutural:
 
 ## Pendências antes de publicar
 
-- [ ] **Checkout da Kiwify** — botão de preço em `index.html` está com `href="#"` e um
-      comentário `<!-- TODO: trocar href="#" pela URL de checkout da Kiwify -->`.
-- [ ] **Depoimentos** — os 3 da seção "Prova social" são exemplos da copy. Só publicar
-      com autorização expressa e sem mencionar resultado de processo, valor de causa ou
-      honorários (publicidade OAB). Trocar por reais ou remover a seção.
-- [ ] **Logo** — a balança + livro é uma reconstrução em SVG. Substituir pelo logo oficial
-      se houver arquivo.
-- [ ] **Foto da instrutora** — hoje são as iniciais "BC". Trocar por foto da Dra. Bianca
-      (disponível na capa dos PDFs).
+- [x] **Checkout da Kiwify** — todos os CTAs de compra (`header`, herói, card de preço,
+      CTA final) apontam para `https://pay.kiwify.com.br/eNDYzcG`.
+- [x] **Logo** — `assets/logo-white.png` (arte oficial, versão branca) usada no cabeçalho
+      e no rodapé, ambos sobre fundo azul-marinho.
+- [x] **Foto da instrutora** — `assets/bianca-marques.jpg` no lugar das iniciais, no bloco
+      de credibilidade do herói.
+- [ ] **Depoimentos** — os 3 da seção "Prova social" ainda são exemplos da copy. Só
+      publicar com autorização expressa e sem mencionar resultado de processo, valor de
+      causa ou honorários (publicidade OAB). Trocar por reais ou remover a seção.
+
+## Assets
+
+| Arquivo | Uso |
+| --- | --- |
+| `assets/logo-white.png` | Logo oficial (branca), cabeçalho e rodapé |
+| `assets/bianca-marques.jpg` | Foto da Dra. Bianca, bloco de credibilidade do herói |
 
 ## Fonte da copy
 
