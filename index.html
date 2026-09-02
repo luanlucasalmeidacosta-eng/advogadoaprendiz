@@ -1,4 +1,5 @@
 <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programa Advogado Aprendiz</title>
 <meta name="description" content="Curso 100% prático de Direito Tributário aplicado à execução fiscal, ministrado pela Dra. Bianca Cardoso Marques." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1001,6 +1002,55 @@
   .reveal.in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ============ CONFORTO DE LEITURA EM MOBILE ============ */
+  @media (max-width: 640px) {
+    body { font-size: 1.09rem; line-height: 1.65; }
+
+    /* rótulos e legendas: sobe o piso do que estava minúsculo */
+    .eyebrow { font-size: .8rem; letter-spacing: .15em; }
+    .cv-mono { font-size: .8rem; letter-spacing: .08em; }
+    .module-num { font-size: .8rem; }
+    .stage-cap { font-size: .72rem; }
+    .cv-meta { font-size: .84rem; }
+    .price-card .k { font-size: .82rem; }
+    .cta-note,
+    .disclaimer,
+    .price-card .fine,
+    .about-role,
+    .instructor p,
+    .site-foot p { font-size: .95rem; }
+
+    /* texto corrido de apoio que estava abaixo de ~16px */
+    .hero .lead,
+    .about-intro,
+    .section-head p,
+    .module-body,
+    .callout p,
+    .flow p,
+    .faq details > p,
+    .quote p,
+    .persona p,
+    .tl-body span,
+    .arrows li,
+    .checks li,
+    .cv-item > p:last-child,
+    .guarantee p,
+    .price-card .split { font-size: 1.03rem; line-height: 1.6; }
+
+    .cv-head,
+    .callout h4,
+    .flow h3,
+    .tl-card h3,
+    .faq summary { font-size: 1.03rem; }
+
+    /* botões: maior alvo de toque e leitura */
+    .btn { font-size: 1rem; }
+    .btn--lg { font-size: 1.06rem; padding: 1.05rem 1.5rem; }
+
+    /* títulos de seção com piso confortável */
+    .section-head h2 { font-size: 1.72rem; }
   }
 </style>
 <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
