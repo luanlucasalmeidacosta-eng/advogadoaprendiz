@@ -131,7 +131,6 @@
   .site-foot strong { color: #fff; }
   /* …except inside light cards nested on those dark bands */
   .band .card strong { color: var(--ink); }
-  .specimen strong { color: inherit; }
   a { color: inherit; }
 
   ::selection { background: var(--navy-bright); color: #fff; }
@@ -538,12 +537,11 @@
   /* light cards nested on the dark band use normal body text, not on-navy */
   .band .card { color: var(--body); }
 
-  .method-grid {
-    display: grid;
-    gap: 1.5rem;
-    margin-top: .5rem;
+  .method-split { display: grid; gap: 1.75rem; align-items: center; }
+  .method-split .section-head { margin-bottom: 0; max-width: 40ch; }
+  @media (min-width: 860px) {
+    .method-split { grid-template-columns: 1fr 1fr; gap: 3rem; }
   }
-  @media (min-width: 860px) { .method-grid { grid-template-columns: 1.1fr .9fr; align-items: start; } }
 
   .flow {
     background: rgba(255, 255, 255, .04);
@@ -566,55 +564,6 @@
   }
   .flow-steps .node.end { background: var(--red); border-color: var(--red); color: #fff; }
   .flow p { margin-top: 1.1rem; font-size: .92rem; color: var(--on-navy-dim); }
-
-  .specimen {
-    background: var(--paper);
-    color: #2a2a26;
-    border-radius: var(--radius);
-    border-left: 4px solid var(--navy-mid);
-    padding: 1.5rem 1.5rem 1.4rem;
-    box-shadow: var(--shadow-lg);
-    position: relative;
-  }
-  .specimen .tag {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    font-size: .62rem;
-    letter-spacing: .2em;
-    color: #8a8577;
-    text-transform: uppercase;
-  }
-  .specimen blockquote {
-    margin: .6rem 0 0;
-    font-family: "Lora", Georgia, serif;
-    font-size: .96rem;
-    line-height: 1.6;
-    color: #3a382f;
-  }
-  .specimen cite {
-    display: block;
-    margin-top: .8rem;
-    font-family: "Montserrat", sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: .74rem;
-    letter-spacing: .06em;
-    color: var(--navy-mid);
-  }
-  .specimen .note {
-    margin-top: 1rem;
-    display: flex;
-    gap: .6rem;
-    align-items: flex-start;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    font-size: .74rem;
-    line-height: 1.4;
-    letter-spacing: .02em;
-    color: var(--navy);
-    text-transform: uppercase;
-  }
-  .specimen .note svg { width: 22px; height: 22px; flex: none; color: var(--red); transform: translateY(-2px); }
 
   /* ============ MODULES ============ */
   .modules { display: flex; flex-direction: column; gap: 1.1rem; }
@@ -1144,16 +1093,16 @@
       </svg>
     </div>
     <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">A solução</p>
-        <h2>O Advogado Aprendiz transforma a teoria que você já tem em método replicável</h2>
-        <p>Curso 100% prático de Direito Tributário aplicado, do fundamento jurídico até a peça processual
-          &mdash; sem &ldquo;juridiquês&rdquo; que só teoriza e sem pular etapas que fazem diferença na hora de montar
-          uma defesa.</p>
-      </div>
+      <div class="method-split reveal">
+        <div class="section-head">
+          <p class="eyebrow">A solução</p>
+          <h2>O Advogado Aprendiz transforma a teoria que você já tem em método replicável</h2>
+          <p>Curso 100% prático de Direito Tributário aplicado, do fundamento jurídico até a peça
+            processual &mdash; sem &ldquo;juridiquês&rdquo; que só teoriza e sem pular etapas que fazem diferença
+            na hora de montar uma defesa.</p>
+        </div>
 
-      <div class="method-grid">
-        <div class="flow reveal">
+        <div class="flow">
           <h3>Cada módulo segue a lógica de qualquer execução fiscal real</h3>
           <div class="flow-steps">
             <span class="node">HIT</span>
@@ -1164,25 +1113,13 @@
             <span class="node">DA</span>
             <span class="node end">EF</span>
           </div>
-          <p>Você aprende a reconstruir essa linha do tempo em qualquer processo que cair nas suas mãos,
-            identificando <strong>em qual etapa mora a nulidade ou a tese de defesa</strong> &mdash; e qual documento
-            específico ir buscar em cada uma delas.</p>
+          <p>Você aprende a reconstruir essa linha do tempo em qualquer processo que cair nas suas
+            mãos, identificando <strong>em qual etapa mora a nulidade ou a tese de defesa</strong> &mdash; e
+            qual documento específico ir buscar em cada uma delas.</p>
           <p>Aulas gravadas, objetivas, com base legal comentada (CTN, LEF, jurisprudência do STJ) já
             filtrada e aplicada a situações reais &mdash; com <strong>Dicas de Mentoria</strong> e
             <strong>Pontos de Atenção</strong> destacados.</p>
         </div>
-
-        <figure class="specimen reveal">
-          <span class="tag">Dos autos &mdash; REsp 1.340.553/RS</span>
-          <blockquote>&ldquo;A efetiva constrição patrimonial e a efetiva citação (ainda que por edital) são aptas a
-            interromper o curso da prescrição intercorrente, não bastando para tal o mero peticionamento
-            em juízo&hellip;&rdquo;</blockquote>
-          <cite>Tema 566/STJ &middot; sistemática do art. 40 da LEF</cite>
-          <p class="note">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M3 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Só ato útil interrompe o prazo. &ldquo;Movimentação&rdquo; não é a mesma coisa &mdash; e é isso que decide o caso.
-          </p>
-        </figure>
       </div>
     </div>
   </section>

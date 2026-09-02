@@ -17,7 +17,7 @@ Extraída dos materiais de apoio das aulas 01–05:
 | Azul médio / vivo (facetas) | `#2c3a92` · `#3f52c4` |
 | Fundo claro | `#eceef2` |
 | Vermelho (ênfase técnica / CTA) | `#d21f2b` |
-| Tipografia | Montserrat (títulos) + Mulish (texto) + Lora (citações jurídicas) |
+| Tipografia | Montserrat (títulos) + Mulish (texto) + Lora (depoimentos e falas em itálico) |
 
 Motivo gráfico: lascas geométricas diagonais (SVG). Fio condutor estrutural:
 `HIT → FG → OT → LÇTO → CT → DA → EF`. Tema claro + escuro, responsivo.
