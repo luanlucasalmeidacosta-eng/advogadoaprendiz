@@ -198,17 +198,22 @@
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding-block: .7rem;
+    padding-block: .5rem;
   }
   .brand {
     display: flex;
     align-items: center;
     text-decoration: none;
   }
-  .brand img { height: 32px; width: auto; display: block; }
+  .brand img { height: 46px; width: auto; display: block; }
   .site .btn { padding: .6rem 1.1rem; font-size: .82rem; }
   @media (max-width: 560px) {
     .site .btn--ghost { display: none; }
+    .brand img { height: 36px; }
+  }
+  @media (max-width: 380px) {
+    .brand img { height: 32px; }
+    .site .btn { padding: .5rem .8rem; font-size: .72rem; }
   }
 
   /* ============ BUTTONS ============ */
