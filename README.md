@@ -34,6 +34,14 @@ Motivo gráfico: lascas geométricas diagonais (SVG). Fio condutor estrutural:
       publicar com autorização expressa e sem mencionar resultado de processo, valor de
       causa ou honorários (publicidade OAB). Trocar por reais ou remover a seção.
 
+## Vídeo
+
+Bloco `#video` logo após o herói: `<iframe>` responsivo (16:9 via `aspect-ratio`),
+carregado com `loading="lazy"` e pelo domínio `youtube-nocookie.com` (só grava cookie
+depois do play). Para trocar o vídeo, mude o ID em `.../embed/<ID>?rel=0` no `index.html`.
+O vídeo precisa estar **Público** ou **Não listado** no YouTube — "Privado" não toca
+incorporado.
+
 ## Seção "A professora"
 
 Bloco de autoridade (`#professora`, entre benefícios e prova social): retrato grande da
