@@ -837,9 +837,12 @@
 
   /* ============ A PROFESSORA / CV ============ */
   .about-grid { display: grid; gap: clamp(1.75rem, 5vw, 3.25rem); }
-  @media (min-width: 900px) { .about-grid { grid-template-columns: 336px 1fr; align-items: start; } }
-
-  @media (min-width: 900px) { .about-portrait { position: sticky; top: 5.5rem; } }
+  .about-body { min-width: 0; }
+  .about-grid .section-head { max-width: none; margin-bottom: 1.5rem; }
+  @media (min-width: 900px) {
+    .about-grid { grid-template-columns: 360px minmax(0, 1fr); align-items: start; column-gap: clamp(2.5rem, 5vw, 4rem); }
+    .about-portrait { position: sticky; top: 7rem; }
+  }
   .about-photo { position: relative; }
   .about-photo img {
     position: relative;
@@ -1137,13 +1140,6 @@
   <!-- ===================== A PROFESSORA ===================== -->
   <section class="section" id="professora">
     <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">A professora</p>
-        <h2>Quem desenvolveu o método &mdash; e por que ele funciona</h2>
-        <p>O Advogado Aprendiz não nasceu de teoria de manual. Nasceu de quem já esteve dos
-          dois lados da execução fiscal.</p>
-      </div>
-
       <div class="about-grid reveal">
         <div class="about-portrait">
           <div class="about-photo">
@@ -1153,7 +1149,14 @@
           <p class="about-role">Advogada &middot; Especialista em Direito Tributário e Empresarial</p>
         </div>
 
-        <div>
+        <div class="about-body">
+          <div class="section-head">
+            <p class="eyebrow">A professora</p>
+            <h2>Quem desenvolveu o método &mdash; e por que ele funciona</h2>
+            <p>O Advogado Aprendiz não nasceu de teoria de manual. Nasceu de quem já esteve dos
+              dois lados da execução fiscal.</p>
+          </div>
+
           <p class="about-intro">
             Da <strong>Procuradoria da Fazenda Nacional</strong>, onde acompanhou a cobrança pelo
             lado de quem executa, ao <strong>Transfer Pricing da EY</strong> &mdash; uma das quatro
