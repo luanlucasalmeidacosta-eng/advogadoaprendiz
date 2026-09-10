@@ -716,6 +716,39 @@
   }
   .disclaimer svg { width: 16px; height: 16px; flex: none; margin-top: .15rem; color: var(--navy-bright); }
 
+  /* ============ PARA QUEM NÃO É ============ */
+  .disqualify { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+  .disqualify li {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: .95rem;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .disqualify li:first-child { padding-top: 0; }
+  .disqualify li:last-child { border-bottom: 0; padding-bottom: 0; }
+  .disqualify .x { width: 26px; height: 26px; color: var(--red); flex: none; margin-top: .05rem; }
+  .dq-lead {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 1.04rem;
+    color: var(--ink);
+    margin-bottom: .35rem;
+  }
+  .disqualify li p + p { font-size: .98rem; }
+  .dq-close {
+    margin-top: 2.25rem;
+    padding: 1.25rem 1.4rem;
+    background: var(--surface-2);
+    border-left: 4px solid var(--navy-mid);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-family: "Lora", Georgia, serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+
   /* ============ OFFER ============ */
   .offer-grid { display: grid; gap: 1.5rem; }
   @media (min-width: 880px) { .offer-grid { grid-template-columns: 1.05fr .95fr; align-items: stretch; } }
@@ -1045,10 +1078,13 @@
     .arrows li,
     .checks li,
     .cv-item > p:last-child,
+    .disqualify li p + p,
+    .dq-close,
     .guarantee p,
     .price-card .split { font-size: 1.03rem; line-height: 1.6; }
 
     .cv-head,
+    .dq-lead,
     .callout h4,
     .flow h3,
     .tl-card h3,
@@ -1570,6 +1606,67 @@
         às normas de publicidade da OAB, não divulgamos resultado de processo, valor de causa ou
         honorários.
       </p>
+    </div>
+  </section>
+
+  <!-- ===================== PARA QUEM NÃO É ===================== -->
+  <section class="section" id="para-quem-nao">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Antes de você decidir</p>
+        <h2>Para quem este curso NÃO é</h2>
+      </div>
+
+      <ul class="disqualify reveal">
+        <li>
+          <svg class="x" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <div>
+            <p class="dq-lead">Se você já domina execução fiscal, não é para você.</p>
+            <p>Se você já reconstruiu a linha do tempo de um crédito tributário dezenas de vezes, já
+              sabe onde mora a nulidade numa CDA e já defende contribuintes em juízo com segurança
+              &mdash; você está anos à frente do ponto de partida. O Advogado Aprendiz foi desenhado
+              para quem está no início, não para quem já vive disso.</p>
+          </div>
+        </li>
+        <li>
+          <svg class="x" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <div>
+            <p class="dq-lead">Se você procura fórmula mágica ou resultado garantido, não é para você.</p>
+            <p>Nenhum curso sério promete isso &mdash; e este menos ainda. O que você recebe é método,
+              base legal comentada e estrutura de peça. O resultado vem do seu estudo e da sua
+              prática. Quem busca atalho vai se frustrar aqui.</p>
+          </div>
+        </li>
+        <li>
+          <svg class="x" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <div>
+            <p class="dq-lead">Se você quer teoria de manual, não é para você.</p>
+            <p>Se o objetivo é aprofundar doutrina, discutir tese acadêmica ou revisitar o CTN em
+              nível de pós-graduação, este não é o seu lugar. O Advogado Aprendiz é 100% prático:
+              ler a CDA sem travar, calcular o prazo com precisão, montar a peça.</p>
+          </div>
+        </li>
+        <li>
+          <svg class="x" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <div>
+            <p class="dq-lead">Se você não vai dedicar tempo, não é para você.</p>
+            <p>O curso é gravado, objetivo e cabe na rotina &mdash; mas exige estudo. Sem assistir às
+              aulas, aplicar os checklists e praticar, o investimento se perde. Preferimos ser
+              honestos agora do que vender uma vaga que não será usada.</p>
+          </div>
+        </li>
+        <li>
+          <svg class="x" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <div>
+            <p class="dq-lead">Se você procura consultoria jurídica, não é para você.</p>
+            <p>Este é um curso educacional. Ele não substitui parecer, defesa ou acompanhamento de
+              caso concreto por um advogado.</p>
+          </div>
+        </li>
+      </ul>
+
+      <p class="dq-close reveal">Se você não se encaixou em nenhuma dessas situações, provavelmente é
+        exatamente para você que o curso foi desenhado.</p>
     </div>
   </section>
 
