@@ -1231,6 +1231,18 @@
   footer.site-foot .brand { margin-bottom: .3rem; }
   footer.site-foot p { font-size: .8rem; line-height: 1.55; }
   footer.site-foot .legal { color: var(--on-navy-dim); opacity: .8; }
+  footer.site-foot .foot-credit {
+    margin-top: .5rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    font-family: "Montserrat", sans-serif;
+    font-size: .68rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--on-navy-dim);
+    opacity: .65;
+  }
+  footer.site-foot .foot-credit span { color: var(--on-navy); font-weight: 700; letter-spacing: .12em; }
 
   /* ============ REVEAL ANIMATION ============ */
   .reveal {
@@ -1531,7 +1543,8 @@
     .price-card .fine,
     .about-role,
     .instructor p,
-    .site-foot p { font-size: .95rem; }
+    .site-foot p:not(.foot-credit) { font-size: .95rem; }
+    footer.site-foot .foot-credit { font-size: .74rem; }
 
     /* texto corrido de apoio que estava abaixo de ~16px */
     .hero .lead,
@@ -2318,6 +2331,7 @@
     <p class="legal">Conteúdo educacional. Este material não constitui consulta jurídica nem garante
       resultado processual. Publicidade em conformidade com o Provimento nº 205/2021 e o Código de Ética
       e Disciplina da OAB. Pagamento e emissão de certificado processados pela Kiwify.</p>
+    <p class="foot-credit">Produção do site e gestão de marketing da estrutura &middot; <span>@VIXELUAN</span></p>
   </div>
 </footer>
 
