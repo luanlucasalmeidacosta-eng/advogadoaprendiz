@@ -1,10 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programa Advogado Aprendiz</title>
-<meta name="description" content="Curso 100% prático de Direito Tributário aplicado à execução fiscal, ministrado pela Dra. Bianca Cardoso Marques." />
+<meta name="description" content="Curso 100% prático de Direito Tributário aplicado à execução fiscal — do fato gerador à defesa em juízo. Ministrado pela Dra. Bianca Cardoso Marques." />
+<meta name="author" content="Dra. Bianca Cardoso Marques" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#eceef2" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0b1030" media="(prefers-color-scheme: dark)" />
+
+<link rel="canonical" href="https://luanlucasalmeidacosta-eng.github.io/advogadoaprendiz/" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Programa Advogado Aprendiz" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:title" content="Programa Advogado Aprendiz — prática tributária da execução fiscal à defesa" />
+<meta property="og:description" content="O curso que fecha a ponte entre a teoria da faculdade e o dia a dia do escritório: ler uma CDA sem travar, calcular prazos e montar a Exceção de Pré-Executividade." />
+<meta property="og:url" content="https://luanlucasalmeidacosta-eng.github.io/advogadoaprendiz/" />
+<meta property="og:image" content="https://luanlucasalmeidacosta-eng.github.io/advogadoaprendiz/assets/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Programa Advogado Aprendiz — curso prático de Direito Tributário" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Programa Advogado Aprendiz" />
+<meta name="twitter:description" content="Curso 100% prático de Direito Tributário: da execução fiscal à defesa em juízo." />
+<meta name="twitter:image" content="https://luanlucasalmeidacosta-eng.github.io/advogadoaprendiz/assets/og-image.jpg" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="image" href="assets/logo-white.png" fetchpriority="high" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Mulish:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Programa Advogado Aprendiz",
+  "description": "Curso 100% prático de Direito Tributário aplicado à execução fiscal, do fato gerador à peça de defesa (Exceção de Pré-Executividade e Embargos).",
+  "inLanguage": "pt-BR",
+  "url": "https://luanlucasalmeidacosta-eng.github.io/advogadoaprendiz/",
+  "image": "https://luanlucasalmeidacosta-eng.github.io/advogadoaprendiz/assets/og-image.jpg",
+  "teaches": [
+    "Linha do tempo do crédito tributário (HIT a EF)",
+    "Constituição do crédito tributário",
+    "Decadência",
+    "Prescrição ordinária",
+    "Prescrição intercorrente",
+    "Estrutura de Exceção de Pré-Executividade"
+  ],
+  "courseMode": "online",
+  "educationalLevel": "Iniciante",
+  "provider": {
+    "@type": "Organization",
+    "name": "Bianca Marques Advogados"
+  },
+  "instructor": {
+    "@type": "Person",
+    "name": "Bianca Cardoso Marques",
+    "jobTitle": "Advogada tributarista",
+    "alumniOf": "Universidade Estácio de Sá"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "PT5H"
+  },
+  "offers": {
+    "@type": "Offer",
+    "category": "Educação",
+    "price": "298.00",
+    "priceCurrency": "BRL",
+    "availability": "https://schema.org/InStock",
+    "url": "https://pay.kiwify.com.br/eNDYzcG"
+  }
+}
+</script>
 
 <style>
   /* ============ TOKENS ============ */
@@ -120,10 +195,7 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
-    animation: page-in .55s var(--ease-soft) both;
   }
-  @keyframes page-in { from { opacity: 0; } to { opacity: 1; } }
-  @media (prefers-reduced-motion: reduce) { body { animation: none; } }
 
   h1, h2, h3, h4 {
     font-family: "Montserrat", "Mulish", system-ui, sans-serif;
@@ -1251,6 +1323,101 @@
     ::-webkit-scrollbar-thumb:hover { background: color-mix(in srgb, var(--navy-bright) 55%, transparent); background-clip: padding-box; }
   }
 
+  /* link "pular para o conteúdo" — invisível até receber foco por teclado */
+  .skip-link {
+    position: fixed;
+    top: .6rem;
+    left: .6rem;
+    z-index: 200;
+    transform: translateY(-160%);
+    background: var(--navy);
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: .85rem;
+    padding: .7rem 1.1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: var(--shadow-lg);
+    transition: transform .25s var(--ease-out);
+  }
+  .skip-link:focus-visible { transform: translateY(0); }
+
+  /* textura sutil de "papel" nas faixas azul-marinho */
+  .hero::before,
+  .band::before,
+  .final::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: .5;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  }
+
+  /* luz que segue o cursor no cartão de preço */
+  .price-card { --mx: 50%; --my: 0%; }
+  .price-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(220px 220px at var(--mx) var(--my), rgba(255, 255, 255, .12), transparent 70%);
+    transition: opacity .35s ease;
+  }
+  @media (hover: hover) {
+    .price-card:hover::after { opacity: 1; }
+  }
+
+  /* parallax discreto do mosaico do herói — só onde o navegador suporta */
+  @supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .hero .facets {
+        animation: hero-drift linear both;
+        animation-timeline: scroll(root);
+        animation-range: 0 560px;
+      }
+      @keyframes hero-drift {
+        to { transform: translateY(-26px) scale(1.05); }
+      }
+    }
+  }
+
+  /* mais contraste quando o sistema pede */
+  @media (prefers-contrast: more) {
+    :root { --line: #b6bac6; }
+    .card, .persona, .quote, .module, .benefit-cols > div, .faq details, .offer-list {
+      border-color: currentColor;
+    }
+    .hero::before, .band::before, .final::before,
+    .cv-mono, .chain span, .pill { background-image: none; }
+  }
+
+  /* respeita quem pede menos transparência */
+  @media (prefers-reduced-transparency: reduce) {
+    .site, .site.scrolled { backdrop-filter: none; background: var(--navy-deep); }
+    .tl-card, .flow { backdrop-filter: none; }
+  }
+
+  /* impressão limpa */
+  @media print {
+    .site, .facets, .video, .skip-link, .hero::before, .hero::after,
+    .band::before, .band::after, .final::before, .final::after { display: none !important; }
+    .reveal, .reveal * { opacity: 1 !important; transform: none !important; filter: none !important; }
+    .faq details { border: 0; }
+    .faq details > p { display: block !important; }
+    .hero, .band, .final, .price-card, footer.site-foot {
+      background: #fff !important; color: #000 !important;
+    }
+    .hero h1, .band h2, .final h2, .price-card .now { color: #000 !important; }
+    a { text-decoration: underline; }
+    body { font-size: 11pt; }
+  }
+
   /* ============ CONFORTO DE LEITURA EM MOBILE ============ */
   @media (max-width: 640px) {
     body { font-size: 1.09rem; line-height: 1.65; }
@@ -1312,11 +1479,14 @@
     opacity: 1 !important; transform: none !important; filter: none !important;
   }
 </style></noscript>
+</head>
+<body>
+<a class="skip-link" href="#topo">Pular para o conteúdo</a>
 
 <header class="site">
   <div class="wrap">
     <a class="brand" href="#topo" aria-label="Programa Advogado Aprendiz — início">
-      <img src="assets/logo-white.png" alt="Programa Advogado Aprendiz" />
+      <img src="assets/logo-white.png" alt="Programa Advogado Aprendiz" width="999" height="286" fetchpriority="high" decoding="async" />
     </a>
     <a class="btn btn--primary" href="https://pay.kiwify.com.br/eNDYzcG">Garantir minha vaga</a>
   </div>
@@ -1356,7 +1526,7 @@
         </p>
 
         <div class="instructor">
-          <img class="ini" src="assets/bianca-marques.jpg" alt="Dra. Bianca Cardoso Marques" />
+          <img class="ini" src="assets/bianca-marques.jpg" alt="Dra. Bianca Cardoso Marques" width="560" height="560" loading="lazy" decoding="async" />
           <p>Curso ministrado por <b>Dra. Bianca Cardoso Marques</b><br />
             Advogada &middot; Especialista em Direito Tributário e Empresarial &middot;
             <a href="#professora">conheça a trajetória</a></p>
@@ -1392,6 +1562,7 @@
         <iframe
           src="https://www.youtube-nocookie.com/embed/t-GsafeCTdk?rel=0"
           title="Programa Advogado Aprendiz — apresentação da Dra. Bianca Cardoso Marques"
+          width="1280" height="720"
           loading="lazy"
           referrerpolicy="strict-origin-when-cross-origin"
           allow="encrypted-media; picture-in-picture; clipboard-write; web-share; fullscreen"
@@ -1451,7 +1622,7 @@
       <div class="about-grid reveal">
         <div class="about-portrait">
           <div class="about-photo">
-            <img src="assets/bianca-portrait.jpg" alt="Dra. Bianca Cardoso Marques em seu escritório" />
+            <img src="assets/bianca-portrait.jpg" alt="Dra. Bianca Cardoso Marques em seu escritório" width="800" height="1000" loading="lazy" decoding="async" />
           </div>
           <p class="about-name">Dra. Bianca Cardoso Marques</p>
           <p class="about-role">Advogada &middot; Especialista em Direito Tributário e Empresarial</p>
@@ -2032,7 +2203,7 @@
 <footer class="site-foot">
   <div class="wrap">
     <a class="brand" href="#topo" aria-label="Programa Advogado Aprendiz">
-      <img src="assets/logo-white.png" alt="Programa Advogado Aprendiz" />
+      <img src="assets/logo-white.png" alt="Programa Advogado Aprendiz" width="999" height="286" loading="lazy" decoding="async" />
     </a>
     <p>Curso ministrado por <strong style="color:var(--on-navy)">Dra. Bianca Cardoso Marques</strong> &mdash;
       Advogada, Especialista em Direito Tributário e Empresarial.</p>
@@ -2087,4 +2258,35 @@
     }, { passive: true });
     update();
   })();
+
+  /* Mark decorative inline icons as hidden from assistive tech + un-focusable. */
+  (function () {
+    document.querySelectorAll("svg:not([aria-hidden])").forEach(function (svg) {
+      svg.setAttribute("aria-hidden", "true");
+      svg.setAttribute("focusable", "false");
+    });
+  })();
+
+  /* Free the GPU hint once each reveal transition settles. */
+  (function () {
+    document.addEventListener("transitionend", function (e) {
+      if (e.target.classList && e.target.classList.contains("reveal")) {
+        e.target.style.willChange = "auto";
+      }
+    }, true);
+  })();
+
+  /* Pointer-following soft light on the price card. */
+  (function () {
+    var card = document.querySelector(".price-card");
+    if (!card || !window.matchMedia("(hover: hover)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    card.addEventListener("pointermove", function (e) {
+      var r = card.getBoundingClientRect();
+      card.style.setProperty("--mx", ((e.clientX - r.left) / r.width * 100) + "%");
+      card.style.setProperty("--my", ((e.clientY - r.top) / r.height * 100) + "%");
+    });
+  })();
 </script>
+</body>
+</html>

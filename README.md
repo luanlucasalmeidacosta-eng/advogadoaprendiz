@@ -34,6 +34,16 @@ Motivo gráfico: lascas geométricas diagonais (SVG). Fio condutor estrutural:
       publicar com autorização expressa e sem mencionar resultado de processo, valor de
       causa ou honorários (publicidade OAB). Trocar por reais ou remover a seção.
 
+## Base técnica (SEO, compartilhamento, acessibilidade)
+
+- `<!DOCTYPE html>` + `<html lang="pt-BR">` — modo padrão do navegador, não quirks
+- Open Graph + Twitter Card + `assets/og-image.jpg` (1200×630) → prévia com imagem
+  no WhatsApp/Instagram/etc.
+- `theme-color` (claro/escuro), `canonical`, favicon (`assets/favicon.png`),
+  `apple-touch-icon`, JSON-LD `Course` (curso + instrutora + oferta)
+- Todas as `<img>` e o `<iframe>` com `width`/`height` → sem "pulo" de layout (CLS)
+- Link "pular para o conteúdo" (teclado), ícones decorativos marcados `aria-hidden`
+
 ## Vídeo
 
 Bloco `#video` logo após o herói: `<iframe>` responsivo (16:9 via `aspect-ratio`),
