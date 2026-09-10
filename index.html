@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#eceef2" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#0b1030" media="(prefers-color-scheme: dark)" />
 
-<link rel="canonical" href="https://luanlucasalmeidacosta-eng.github.io/advogadoaprendiz/" />
+<link rel="canonical" href="https://advogadoaprendiz-sigma.vercel.app/" />
 <link rel="icon" type="image/png" href="assets/favicon.png" />
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
@@ -21,15 +21,15 @@
 <meta property="og:locale" content="pt_BR" />
 <meta property="og:title" content="Programa Advogado Aprendiz — prática tributária da execução fiscal à defesa" />
 <meta property="og:description" content="O curso que fecha a ponte entre a teoria da faculdade e o dia a dia do escritório: ler uma CDA sem travar, calcular prazos e montar a Exceção de Pré-Executividade." />
-<meta property="og:url" content="https://luanlucasalmeidacosta-eng.github.io/advogadoaprendiz/" />
-<meta property="og:image" content="https://luanlucasalmeidacosta-eng.github.io/advogadoaprendiz/assets/og-image.jpg" />
+<meta property="og:url" content="https://advogadoaprendiz-sigma.vercel.app/" />
+<meta property="og:image" content="https://advogadoaprendiz-sigma.vercel.app/assets/og-image.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Programa Advogado Aprendiz — curso prático de Direito Tributário" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Programa Advogado Aprendiz" />
 <meta name="twitter:description" content="Curso 100% prático de Direito Tributário: da execução fiscal à defesa em juízo." />
-<meta name="twitter:image" content="https://luanlucasalmeidacosta-eng.github.io/advogadoaprendiz/assets/og-image.jpg" />
+<meta name="twitter:image" content="https://advogadoaprendiz-sigma.vercel.app/assets/og-image.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,8 +43,8 @@
   "name": "Programa Advogado Aprendiz",
   "description": "Curso 100% prático de Direito Tributário aplicado à execução fiscal, do fato gerador à peça de defesa (Exceção de Pré-Executividade e Embargos).",
   "inLanguage": "pt-BR",
-  "url": "https://luanlucasalmeidacosta-eng.github.io/advogadoaprendiz/",
-  "image": "https://luanlucasalmeidacosta-eng.github.io/advogadoaprendiz/assets/og-image.jpg",
+  "url": "https://advogadoaprendiz-sigma.vercel.app/",
+  "image": "https://advogadoaprendiz-sigma.vercel.app/assets/og-image.jpg",
   "teaches": [
     "Linha do tempo do crédito tributário (HIT a EF)",
     "Constituição do crédito tributário",
@@ -103,6 +103,10 @@
     --red-deep: #a5161f;
     --red-wash: #fbeceb;
 
+    /* vermelho do CTA — fixo nos dois temas p/ manter contraste com o texto branco */
+    --cta: #d21f2b;
+    --cta-hover: #b0141f;
+
     --on-navy: #f3f4fa;
     --on-navy-dim: #b7c0e4;
 
@@ -133,7 +137,7 @@
       --navy: #1b2867;
       --navy-deep: #05081b;
       --navy-mid: #35459c;
-      --navy-bright: #5566d8;
+      --navy-bright: #6b7be8;
 
       --line: #262c4e;
       --red: #ff5a63;
@@ -162,7 +166,7 @@
     --navy: #1b2867;
     --navy-deep: #05081b;
     --navy-mid: #35459c;
-    --navy-bright: #5566d8;
+    --navy-bright: #6b7be8;
 
     --line: #262c4e;
     --red: #ff5a63;
@@ -266,7 +270,7 @@
     font-weight: 800;
     letter-spacing: -.01em;
   }
-  .section-head p { margin-top: 1rem; color: var(--body); }
+  .section-head p:not(.eyebrow) { margin-top: 1rem; color: var(--body); }
 
   /* ============ HEADER ============ */
   .site {
@@ -331,17 +335,19 @@
     opacity: .9;
     transition: opacity .28s ease;
   }
-  .btn:active { transform: translateY(0) scale(.985); }
+  /* deslocamento "magnético" (JS injeta --bx/--by ao passar o cursor) */
+  .btn { transform: translate(var(--bx, 0px), var(--by, 0px)); }
+  .btn:hover { --by: -2px; }
+  .btn:active { transform: translate(var(--bx, 0px), var(--by, 0px)) scale(.97); }
 
   .btn--primary {
-    background: var(--red);
+    background: var(--cta);
     color: #fff;
-    box-shadow: 0 1px 2px rgba(120, 12, 18, .35), 0 10px 22px -8px color-mix(in srgb, var(--red) 55%, transparent);
+    box-shadow: 0 1px 2px rgba(120, 12, 18, .35), 0 10px 22px -8px color-mix(in srgb, var(--cta) 55%, transparent);
   }
   .btn--primary:hover {
-    background: var(--red-deep);
-    transform: translateY(-2px);
-    box-shadow: 0 2px 4px rgba(120, 12, 18, .35), 0 16px 34px -8px color-mix(in srgb, var(--red) 62%, transparent), 0 0 0 1px rgba(255, 255, 255, .06) inset;
+    background: var(--cta-hover);
+    box-shadow: 0 2px 4px rgba(120, 12, 18, .35), 0 16px 34px -8px color-mix(in srgb, var(--cta) 62%, transparent), 0 0 0 1px rgba(255, 255, 255, .06) inset;
   }
   .btn--primary:hover::before { opacity: 1; }
 
@@ -350,7 +356,7 @@
     color: var(--on-navy);
     box-shadow: var(--shadow-sm);
   }
-  .btn--navy:hover { transform: translateY(-2px); box-shadow: var(--shadow); filter: brightness(1.08); }
+  .btn--navy:hover { box-shadow: var(--shadow); filter: brightness(1.08); }
 
   .btn--ghost {
     background: rgba(255, 255, 255, .02);
@@ -358,12 +364,13 @@
     border: 1px solid rgba(255, 255, 255, .28);
     transition: transform .32s var(--ease-out), background-color .28s ease, border-color .28s ease;
   }
-  .btn--ghost:hover { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .5); transform: translateY(-1px); }
+  .btn--ghost:hover { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .5); }
 
   .btn--lg { padding: 1.15rem 2rem; font-size: 1.02rem; }
   .btn svg { transition: transform .32s var(--ease-out); }
   .btn:hover svg { transform: translateX(2px); }
   @media (prefers-reduced-motion: reduce) {
+    .btn { --bx: 0px !important; --by: 0px !important; }
     .btn, .btn:hover, .btn:active { transform: none; }
     .btn:hover svg { transform: none; }
   }
@@ -650,7 +657,7 @@
   }
   .band .wrap { position: relative; z-index: 2; }
   .band h2 { color: #fff; }
-  .band .section-head p { color: var(--on-navy-dim); }
+  .band .section-head p:not(.eyebrow) { color: var(--on-navy-dim); }
   .band .eyebrow { color: #fff; }
   /* light cards nested on the dark band use normal body text, not on-navy */
   .band .card { color: var(--body); }
@@ -1047,7 +1054,18 @@
   }
   .cv-label::before { content: ""; width: 1.6rem; height: 2px; background: var(--red); display: inline-block; flex: none; }
 
-  .cv-list { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
+  .cv-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 2px solid transparent;   /* reserva o espaço da linha, sem deslocar nada */
+    background-image: linear-gradient(var(--line), var(--line));
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 2px 100%;
+  }
+  .reveal .cv-list { background-size: 2px 0%; transition: background-size .9s var(--ease-out); }
+  .reveal.in .cv-list { background-size: 2px 100%; }
   .cv-item { position: relative; padding: 0 0 1.6rem 1.6rem; }
   .cv-item:last-child { padding-bottom: 0; }
   .cv-item::before {
@@ -1116,6 +1134,71 @@
   }
   .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
+  /* fachada do vídeo — só carrega o YouTube ao clicar */
+  .video-play {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    background-color: var(--navy-deep);
+    background-image: url("assets/video-poster.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .video-play::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(11, 16, 48, .18), rgba(11, 16, 48, .5));
+    transition: background .3s ease;
+  }
+  .video-play:hover::before { background: linear-gradient(180deg, rgba(11, 16, 48, .05), rgba(11, 16, 48, .38)); }
+  .video-play-icon {
+    position: relative;
+    width: 76px;
+    height: 76px;
+    border-radius: 999px;
+    background: var(--cta);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 12px 34px -8px rgba(210, 31, 43, .6);
+    transition: transform .3s var(--ease-out), background-color .2s ease;
+  }
+  .video-play:hover .video-play-icon,
+  .video-play:focus-visible .video-play-icon { transform: scale(1.09); background: var(--cta-hover); }
+  .video-play-icon svg { width: 30px; height: 30px; margin-left: 4px; }
+  @media (prefers-reduced-motion: reduce) {
+    .video-play:hover .video-play-icon { transform: none; }
+  }
+
+  /* contadores animados */
+  .count { font-variant-numeric: tabular-nums; }
+  .count[data-count-to="17"] { display: inline-block; min-width: 2ch; text-align: right; }
+
+  /* barra de progresso de leitura */
+  .reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    z-index: 60;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: linear-gradient(90deg, var(--red), var(--navy-bright));
+    pointer-events: none;
+    transition: transform .12s linear;
+  }
+  @media (prefers-reduced-motion: reduce) { .reading-progress { transition: none; } }
+
   /* ============ FINAL CTA ============ */
   .final {
     position: relative;
@@ -1180,6 +1263,14 @@
   .reveal.in .cv-item,
   .reveal.in .disqualify li { opacity: 1; transform: none; }
 
+  /* conector da linha do tempo do herói "se desenha" */
+  .reveal .tl-line {
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform .6s var(--ease-out) .18s;
+  }
+  .reveal.in .tl-line { transform: scaleY(1); }
+
   .reveal.in .tl-step:nth-child(2),
   .reveal.in .flow-steps .node:nth-child(2),
   .reveal.in .chain span:nth-child(2),
@@ -1230,12 +1321,15 @@
     .reveal .arrows li,
     .reveal .checks li,
     .reveal .cv-item,
-    .reveal .disqualify li {
+    .reveal .disqualify li,
+    .reveal .tl-line {
       opacity: 1;
       transform: none;
       filter: none;
       transition: none;
     }
+    .reveal .cv-list,
+    .reveal.in .cv-list { background-size: 2px 100%; transition: none; }
   }
 
   /* ============ POLIMENTO — MICROINTERAÇÕES E PROFUNDIDADE ============ */
@@ -1440,7 +1534,7 @@
     .hero .lead,
     .about-intro,
     .about-close,
-    .section-head p,
+    .section-head p:not(.eyebrow),
     .module-body,
     .callout p,
     .flow p,
@@ -1475,13 +1569,17 @@
   .reveal,
   .reveal .tl-step, .reveal .flow-steps .node, .reveal .chain span,
   .reveal .quote, .reveal .persona, .reveal .arrows li, .reveal .checks li,
-  .reveal .cv-item, .reveal .disqualify li {
+  .reveal .cv-item, .reveal .disqualify li, .reveal .tl-line {
     opacity: 1 !important; transform: none !important; filter: none !important;
   }
+  .reveal .cv-list { background-size: 2px 100% !important; }
+  .reading-progress { display: none; }
+  .video-play { display: none; }
 </style></noscript>
 </head>
 <body>
 <a class="skip-link" href="#topo">Pular para o conteúdo</a>
+<div class="reading-progress" aria-hidden="true"></div>
 
 <header class="site">
   <div class="wrap">
@@ -1558,15 +1656,22 @@
         <p class="eyebrow">Assista</p>
         <h2>O Programa Advogado Aprendiz em poucos minutos</h2>
       </div>
-      <div class="video reveal">
-        <iframe
-          src="https://www.youtube-nocookie.com/embed/t-GsafeCTdk?rel=0"
-          title="Programa Advogado Aprendiz — apresentação da Dra. Bianca Cardoso Marques"
-          width="1280" height="720"
-          loading="lazy"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allow="encrypted-media; picture-in-picture; clipboard-write; web-share; fullscreen"
-          allowfullscreen></iframe>
+      <div class="video reveal" data-embed="https://www.youtube-nocookie.com/embed/t-GsafeCTdk?rel=0&amp;autoplay=1">
+        <button type="button" class="video-play"
+          aria-label="Assistir à apresentação do Programa Advogado Aprendiz (abre o player do YouTube)">
+          <span class="video-play-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+          </span>
+        </button>
+        <noscript>
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/t-GsafeCTdk?rel=0"
+            title="Programa Advogado Aprendiz — apresentação da Dra. Bianca Cardoso Marques"
+            width="1280" height="720"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="encrypted-media; picture-in-picture; clipboard-write; web-share; fullscreen"
+            allowfullscreen></iframe>
+        </noscript>
       </div>
     </div>
   </section>
@@ -1639,8 +1744,8 @@
           <p class="about-intro">
             Da <strong>Procuradoria da Fazenda Nacional</strong>, onde acompanhou a cobrança pelo
             lado de quem executa, até a frente da <strong>Bianca Marques Advogados</strong>, escritório
-            próprio de advocacia tributária, são <strong>17 anos de Direito Tributário</strong> (desde
-            2009) &mdash; e é essa vivência que está destilada em cada aula.
+            próprio de advocacia tributária, são <strong><span class="count" data-count-to="17">17</span> anos
+            de Direito Tributário</strong> (desde 2009) &mdash; e é essa vivência que está destilada em cada aula.
           </p>
 
           <div class="cv cv--current">
@@ -1765,7 +1870,7 @@
   <section class="section" id="modulos">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">5 módulos</p>
+        <p class="eyebrow"><span class="count" data-count-to="5">5</span>&nbsp;módulos</p>
         <h2>O que você domina, etapa por etapa da linha do tempo</h2>
       </div>
 
@@ -2244,18 +2349,24 @@
     setTimeout(showAll, 2500);
   })();
 
-  /* Sticky header gains elevation once the page has scrolled. */
+  /* Sticky header elevation + reading-progress bar, on one throttled scroll pass. */
   (function () {
     var site = document.querySelector(".site");
-    if (!site) return;
+    var bar = document.querySelector(".reading-progress");
     var ticking = false;
     function update() {
-      site.classList.toggle("scrolled", window.scrollY > 8);
+      var y = window.scrollY || document.documentElement.scrollTop;
+      if (site) site.classList.toggle("scrolled", y > 8);
+      if (bar) {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = "scaleX(" + (max > 0 ? Math.min(1, y / max) : 0) + ")";
+      }
       ticking = false;
     }
     window.addEventListener("scroll", function () {
       if (!ticking) { requestAnimationFrame(update); ticking = true; }
     }, { passive: true });
+    window.addEventListener("resize", update, { passive: true });
     update();
   })();
 
@@ -2286,6 +2397,71 @@
       card.style.setProperty("--mx", ((e.clientX - r.left) / r.width * 100) + "%");
       card.style.setProperty("--my", ((e.clientY - r.top) / r.height * 100) + "%");
     });
+  })();
+
+  /* Video facade — load the YouTube player only on click. */
+  (function () {
+    var box = document.querySelector(".video[data-embed]");
+    var btn = box && box.querySelector(".video-play");
+    if (!box || !btn) return;
+    btn.addEventListener("click", function () {
+      var f = document.createElement("iframe");
+      f.src = box.getAttribute("data-embed");
+      f.title = "Apresentação do Programa Advogado Aprendiz";
+      f.setAttribute("frameborder", "0");
+      f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+      f.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture; clipboard-write; web-share; fullscreen");
+      f.setAttribute("allowfullscreen", "");
+      btn.remove();
+      box.appendChild(f);
+    }, { once: true });
+  })();
+
+  /* Magnetic pull on buttons (fine pointer only). */
+  (function () {
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    document.querySelectorAll(".btn").forEach(function (btn) {
+      btn.addEventListener("pointermove", function (e) {
+        var r = btn.getBoundingClientRect();
+        var dx = (e.clientX - (r.left + r.width / 2)) / r.width;
+        var dy = (e.clientY - (r.top + r.height / 2)) / r.height;
+        var mag = Math.min(r.width, 260) * 0.14;
+        btn.style.setProperty("--bx", (dx * mag).toFixed(2) + "px");
+        btn.style.setProperty("--by", (dy * mag - 2).toFixed(2) + "px");
+      });
+      btn.addEventListener("pointerleave", function () {
+        btn.style.removeProperty("--bx");
+        btn.style.removeProperty("--by");
+      });
+    });
+  })();
+
+  /* Count-up on numbers when they scroll into view. */
+  (function () {
+    var nodes = document.querySelectorAll(".count[data-count-to]");
+    if (!nodes.length) return;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce || !("IntersectionObserver" in window)) return;
+    function run(el) {
+      var to = parseInt(el.getAttribute("data-count-to"), 10) || 0;
+      var start = null, dur = 1100;
+      function step(t) {
+        if (start === null) start = t;
+        var p = Math.min(1, (t - start) / dur);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(eased * to);
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = to;
+      }
+      requestAnimationFrame(step);
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { run(e.target); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.6 });
+    nodes.forEach(function (el) { io.observe(el); });
   })();
 </script>
 </body>
