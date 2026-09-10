@@ -457,8 +457,8 @@
     .hero .tl-card { grid-column: 2; grid-row: 2; }
   }
 
-  .hero-photo {
-    margin: 0;
+  .hero-photo { margin: 0; display: flex; flex-direction: column; gap: .7rem; }
+  .hero-photo-frame {
     position: relative;
     aspect-ratio: 4 / 3;
     border-radius: var(--radius);
@@ -474,9 +474,24 @@
     object-position: 50% 26%;
     display: block;
   }
+  .hero-photo figcaption {
+    text-align: center;
+    font-size: .82rem;
+    line-height: 1.4;
+    color: var(--on-navy-dim);
+  }
+  .hero-photo figcaption b {
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: .92rem;
+    color: #fff;
+    margin-bottom: .1rem;
+  }
   @media (max-width: 899px) {
     .hero .wrap { display: flex; flex-direction: column; }
-    .hero-photo { aspect-ratio: 5 / 4; order: -1; }
+    .hero-photo { order: -1; }
+    .hero-photo-frame { aspect-ratio: 5 / 4; }
   }
 
   .pill {
@@ -1601,7 +1616,9 @@
     .price-card .fine,
     .about-role,
     .instructor p,
+    .hero-photo figcaption,
     .site-foot p:not(.foot-credit) { font-size: .95rem; }
+    .hero-photo figcaption b { font-size: 1.03rem; }
     footer.site-foot .foot-credit { font-size: .74rem; }
 
     /* texto corrido de apoio que estava abaixo de ~16px */
@@ -1707,8 +1724,14 @@
       </div>
 
       <figure class="hero-photo reveal">
-        <img src="assets/bianca-hero.jpg" alt="Dra. Bianca Cardoso Marques em seu escritório"
-          width="760" height="570" fetchpriority="high" decoding="async" />
+        <div class="hero-photo-frame">
+          <img src="assets/bianca-hero.jpg" alt="Dra. Bianca Cardoso Marques em seu escritório"
+            width="760" height="570" fetchpriority="high" decoding="async" />
+        </div>
+        <figcaption>
+          <b><a class="ln" href="https://www.instagram.com/biancacmarquesadv/" target="_blank" rel="noopener">Dra. Bianca Cardoso Marques</a></b>
+          Advogada &middot; Especialista em Direito Tributário e Empresarial
+        </figcaption>
       </figure>
 
       <div class="tl-card reveal">
