@@ -185,6 +185,9 @@
   /* ============ BASE ============ */
   *, *::before, *::after { box-sizing: border-box; }
 
+  /* reset de imagem — sem isto, os atributos width/height travam a altura e distorcem */
+  img { max-width: 100%; height: auto; }
+
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
