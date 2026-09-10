@@ -224,6 +224,15 @@
   .band .card strong { color: var(--ink); }
   a { color: inherit; }
 
+  /* link de texto discreto — herda a cor do contexto (branco na faixa, escuro no claro) */
+  .ln {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+    transition: border-color .2s ease, opacity .2s ease;
+  }
+  .ln:hover { border-bottom-color: currentColor; }
+
   ::selection { background: var(--navy-bright); color: #fff; }
 
   :focus-visible {
@@ -1641,7 +1650,7 @@
 
         <div class="instructor">
           <img class="ini" src="assets/bianca-marques.jpg" alt="Dra. Bianca Cardoso Marques" width="560" height="560" loading="lazy" decoding="async" />
-          <p>Curso ministrado por <b>Dra. Bianca Cardoso Marques</b><br />
+          <p>Curso ministrado por <b><a class="ln" href="https://www.instagram.com/biancacmarquesadv/" target="_blank" rel="noopener">Dra. Bianca Cardoso Marques</a></b><br />
             Advogada &middot; Especialista em Direito Tributário e Empresarial &middot;
             <a href="#professora">conheça a trajetória</a></p>
         </div>
@@ -1745,7 +1754,7 @@
           <div class="about-photo">
             <img src="assets/bianca-portrait.jpg" alt="Dra. Bianca Cardoso Marques em seu escritório" width="800" height="1000" loading="lazy" decoding="async" />
           </div>
-          <p class="about-name">Dra. Bianca Cardoso Marques</p>
+          <p class="about-name"><a class="ln" href="https://www.instagram.com/biancacmarquesadv/" target="_blank" rel="noopener">Dra. Bianca Cardoso Marques</a></p>
           <p class="about-role">Advogada &middot; Especialista em Direito Tributário e Empresarial</p>
         </div>
 
@@ -2326,12 +2335,13 @@
     <a class="brand" href="#topo" aria-label="Programa Advogado Aprendiz">
       <img src="assets/logo-white.png" alt="Programa Advogado Aprendiz" width="999" height="286" loading="lazy" decoding="async" />
     </a>
-    <p>Curso ministrado por <strong style="color:var(--on-navy)">Dra. Bianca Cardoso Marques</strong> &mdash;
+    <p>Curso ministrado por <strong style="color:var(--on-navy)"><a class="ln" href="https://www.instagram.com/biancacmarquesadv/" target="_blank" rel="noopener">Dra. Bianca Cardoso Marques</a></strong> &mdash;
       Advogada, Especialista em Direito Tributário e Empresarial.</p>
     <p class="legal">Conteúdo educacional. Este material não constitui consulta jurídica nem garante
       resultado processual. Publicidade em conformidade com o Provimento nº 205/2021 e o Código de Ética
       e Disciplina da OAB. Pagamento e emissão de certificado processados pela Kiwify.</p>
-    <p class="foot-credit">Produção do site e gestão de marketing da estrutura &middot; <span>@VIXELUAN</span></p>
+    <p class="foot-credit">Produção do site e gestão de marketing da estrutura &middot;
+      <a class="ln" href="https://www.instagram.com/vixeluan/" target="_blank" rel="noopener"><span>@VIXELUAN</span></a></p>
   </div>
 </footer>
 
