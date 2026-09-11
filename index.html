@@ -106,6 +106,7 @@
     /* vermelho do CTA — fixo nos dois temas p/ manter contraste com o texto branco */
     --cta: #d21f2b;
     --cta-hover: #b0141f;
+    --ok: #1f9d57;   /* verde do "check" nos benefícios */
 
     --on-navy: #f3f4fa;
     --on-navy-dim: #b7c0e4;
@@ -146,6 +147,7 @@
       --red: #ff5a63;
       --red-deep: #ff8087;
       --red-wash: #2a1420;
+      --ok: #34d17d;
 
       --on-navy: #eef0fb;
       --on-navy-dim: #aab2d8;
@@ -420,6 +422,30 @@
   }
   .cta-note svg { width: 15px; height: 15px; color: var(--navy-bright); flex: none; }
 
+  /* ============ FAIXA DE CTA NO MEIO DA PÁGINA ============ */
+  .cta-strip {
+    background: var(--ground);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .cta-strip .wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.1rem;
+  }
+  .cta-strip p.line {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.15rem, 3.2vw, 1.55rem);
+    letter-spacing: -.01em;
+    color: var(--ink);
+    max-width: 26ch;
+    text-wrap: balance;
+  }
+  .cta-strip .cta-note { margin-top: 0; }
+
   /* ============ FACETS (brand geometric motif) ============ */
   .facets {
     position: absolute;
@@ -460,7 +486,7 @@
   .hero-photo { margin: 0; display: flex; flex-direction: column; gap: .7rem; }
   .hero-photo-frame {
     position: relative;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1 / 1;
     border-radius: var(--radius);
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, .14);
@@ -471,7 +497,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 50% 26%;
+    object-position: 50% 30%;
     display: block;
   }
   .hero-photo figcaption {
@@ -491,7 +517,6 @@
   @media (max-width: 899px) {
     .hero .wrap { display: flex; flex-direction: column; }
     .hero-photo { order: -1; }
-    .hero-photo-frame { aspect-ratio: 5 / 4; }
   }
 
   .pill {
@@ -646,9 +671,9 @@
   .arrows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .85rem; }
   .arrows li { display: grid; grid-template-columns: 22px 1fr; gap: .7rem; align-items: start; }
   .arrows li > svg {
-    width: 20px; height: 20px;
-    color: var(--navy-bright);
-    margin-top: .18rem;
+    width: 21px; height: 21px;
+    color: var(--ok);
+    margin-top: .12rem;
     flex: none;
   }
   .arrows li strong { color: var(--ink); }
@@ -860,7 +885,7 @@
   .benefit-cols h3 {
     font-size: 1rem;
     font-weight: 800;
-    color: var(--navy-bright);
+    color: var(--cta);
     margin-bottom: 1.1rem;
     padding-bottom: .8rem;
     border-bottom: 2px solid var(--line);
@@ -1708,7 +1733,7 @@
         </p>
         <div class="hero-actions">
           <a class="btn btn--primary btn--lg" href="https://pay.kiwify.com.br/eNDYzcG">Quero dominar a prática tributária</a>
-          <a class="btn btn--ghost btn--lg" href="#curso">Ver o que você aprende</a>
+          <a class="btn btn--ghost btn--lg" href="#curso">Veja o que você aprende</a>
         </div>
         <p class="cta-note" style="justify-content:flex-start;color:var(--on-navy-dim)">
           <svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" fill="currentColor"/></svg>
@@ -1726,7 +1751,7 @@
       <figure class="hero-photo reveal">
         <div class="hero-photo-frame">
           <img src="assets/bianca-hero.jpg" alt="Dra. Bianca Cardoso Marques em seu escritório"
-            width="760" height="570" fetchpriority="high" decoding="async" />
+            width="760" height="760" fetchpriority="high" decoding="async" />
         </div>
         <figcaption>
           <b><a class="ln" href="https://www.instagram.com/biancacmarquesadv/" target="_blank" rel="noopener">Dra. Bianca Cardoso Marques</a></b>
@@ -1927,6 +1952,18 @@
     </div>
   </section>
 
+  <!-- ===================== CTA (antes de "A solução") ===================== -->
+  <section class="section section--tight cta-strip">
+    <div class="wrap reveal">
+      <p class="line">Você conheceu a trajetória. Agora veja o método que saiu dela.</p>
+      <a class="btn btn--primary btn--lg" href="https://pay.kiwify.com.br/eNDYzcG">Quero dominar a prática tributária</a>
+      <p class="cta-note">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" fill="currentColor"/></svg>
+        Acesso imediato após a inscrição
+      </p>
+    </div>
+  </section>
+
   <!-- ===================== O CURSO / MÉTODO ===================== -->
   <section class="section band" id="curso">
     <div class="facets" aria-hidden="true">
@@ -2095,6 +2132,18 @@
     </div>
   </section>
 
+  <!-- ===================== CTA (antes de "O que muda para você") ===================== -->
+  <section class="section section--tight cta-strip">
+    <div class="wrap reveal">
+      <p class="line">Cinco módulos, uma linha do tempo. É o que separa uma defesa sólida de uma tentativa.</p>
+      <a class="btn btn--primary btn--lg" href="https://pay.kiwify.com.br/eNDYzcG">Quero garantir minha vaga</a>
+      <p class="cta-note">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" fill="currentColor"/></svg>
+        Acesso imediato após a inscrição
+      </p>
+    </div>
+  </section>
+
   <!-- ===================== BENEFÍCIOS ===================== -->
   <section class="section" id="beneficios" style="background:var(--surface-2)">
     <div class="wrap">
@@ -2108,22 +2157,22 @@
           <h3>Se você está terminando a faculdade</h3>
           <ul class="arrows">
             <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 8c8 0 8 8 16 8M4 8l4-3M4 8l4 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <span>Chegue ao primeiro estágio já sabendo diferenciar <strong>suspensão de extinção</strong> da
                 exigibilidade do crédito &mdash; o erro que a maioria só aprende errando.</span>
             </li>
             <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 8c8 0 8 8 16 8M4 8l4-3M4 8l4 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <span>Leia uma execução fiscal e reconstrua, em minutos, toda a linha do tempo do crédito
                 &mdash; entendendo a lógica, sem decorar matéria.</span>
             </li>
             <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 8c8 0 8 8 16 8M4 8l4-3M4 8l4 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <span>Saiba que &ldquo;quem cobra e quem paga&rdquo; é ponto de defesa real, com pergunta pronta:
                 <em>&ldquo;quem está sendo executado é mesmo quem pode ser cobrado?&rdquo;</em></span>
             </li>
             <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 8c8 0 8 8 16 8M4 8l4-3M4 8l4 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <span>Entre no estágio sabendo ler uma <strong>CDA</strong> e uma petição inicial de execução
                 fiscal sem travar &mdash; e reconhecendo, linha por linha, onde o Fisco pode ter errado
                 (decadência, prescrição, sujeito passivo indevido).</span>
@@ -2134,27 +2183,27 @@
           <h3>Se você já é advogado(a) recém-formado(a)</h3>
           <ul class="arrows">
             <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 8c8 0 8 8 16 8M4 8l4-3M4 8l4 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <span>Monte do zero uma <strong>Exceção de Pré-Executividade</strong> estruturada em blocos, com
                 frases-base prontas para adaptar &mdash; sem depender de modelo genérico.</span>
             </li>
             <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 8c8 0 8 8 16 8M4 8l4-3M4 8l4 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <span>Pare de &ldquo;chutar&rdquo; entre CTN art. 173, I e art. 150, §4º: aplique o método de 4 perguntas
                 que enquadra qualquer caso de decadência no cenário certo.</span>
             </li>
             <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 8c8 0 8 8 16 8M4 8l4-3M4 8l4 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <span>Domine as 3 modalidades de lançamento e saiba exatamente qual documento cobrar da
                 Fazenda &mdash; e qual prova reunir para a defesa.</span>
             </li>
             <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 8c8 0 8 8 16 8M4 8l4-3M4 8l4 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <span>Reconheça, dentro dos autos (em qual folha, em qual ID), os sinais de uma execução
                 abandonada e transforme isso em tese de prescrição intercorrente.</span>
             </li>
             <li>
-              <svg viewBox="0 0 24 24" fill="none"><path d="M4 8c8 0 8 8 16 8M4 8l4-3M4 8l4 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <span>Ganhe o preparo para aceitar seu primeiro caso tributário &mdash; e para justificar, com
                 propriedade, os honorários de um trabalho tecnicamente qualificado.</span>
             </li>
@@ -2236,23 +2285,6 @@
             <p>Se o objetivo é aprofundar doutrina, discutir tese acadêmica ou revisitar o CTN em
               nível de pós-graduação, este não é o seu lugar. O Advogado Aprendiz é 100% prático:
               ler a CDA sem travar, calcular o prazo com precisão, montar a peça.</p>
-          </div>
-        </li>
-        <li>
-          <svg class="x" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
-          <div>
-            <p class="dq-lead">Se você não vai dedicar tempo, não é para você.</p>
-            <p>O curso é gravado, objetivo e cabe na rotina &mdash; mas exige estudo. Sem assistir às
-              aulas, aplicar os checklists e praticar, o investimento se perde. Preferimos ser
-              honestos agora do que vender uma vaga que não será usada.</p>
-          </div>
-        </li>
-        <li>
-          <svg class="x" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
-          <div>
-            <p class="dq-lead">Se você procura consultoria jurídica, não é para você.</p>
-            <p>Este é um curso educacional. Ele não substitui parecer, defesa ou acompanhamento de
-              caso concreto por um advogado.</p>
           </div>
         </li>
       </ul>
