@@ -1000,20 +1000,34 @@
   }
   .price-card .old {
     text-decoration: line-through;
+    text-decoration-thickness: 1px;
     color: var(--on-navy-dim);
-    font-size: 1rem;
-    margin-top: .6rem;
+    font-size: 1.05rem;
+    margin-top: .7rem;
+    font-variant-numeric: tabular-nums;
   }
   .price-card .now {
     font-family: "Montserrat", sans-serif;
     font-weight: 800;
-    font-size: clamp(2.6rem, 7vw, 3.4rem);
+    font-size: clamp(2.5rem, 8.5vw, 4rem);
+    letter-spacing: -.02em;
     color: #fff;
-    line-height: 1;
+    line-height: 1.02;
+    margin-top: .25rem;
+    white-space: nowrap;
     font-variant-numeric: tabular-nums;
   }
-  .price-card .now small { font-size: 1.1rem; font-weight: 700; color: var(--on-navy-dim); }
-  .price-card .split { color: var(--on-navy-dim); font-size: .95rem; margin-bottom: 1.3rem; font-variant-numeric: tabular-nums; }
+  .price-card .now small {
+    display: block;
+    font-family: "Mulish", system-ui, sans-serif;
+    font-size: .9rem;
+    font-weight: 700;
+    letter-spacing: .02em;
+    color: var(--on-navy-dim);
+    margin-bottom: .15rem;
+    white-space: normal;
+  }
+  .price-card .split { color: var(--on-navy-dim); font-size: 1rem; margin: .5rem 0 1.4rem; font-variant-numeric: tabular-nums; }
   .price-card .btn { width: 100%; }
   .price-card .fine {
     margin-top: 1rem;
@@ -2354,9 +2368,9 @@
             </svg>
           </div>
           <span class="k">Investimento</span>
-          <span class="old">De R$ 597</span>
-          <span class="now">R$ 297<small> à vista</small></span>
-          <span class="split">ou 10x de R$ 35,69</span>
+          <span class="old">De R$ 997,00</span>
+          <span class="now"><small>por apenas</small>R$ 297,00</span>
+          <span class="split">(ou 10x de R$ 35,70)</span>
           <a class="btn btn--primary btn--lg" href="https://pay.kiwify.com.br/eNDYzcG">Quero garantir minha vaga agora</a>
           <p class="fine">
             <svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" fill="currentColor"/></svg>
