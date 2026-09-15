@@ -1295,15 +1295,42 @@
     .video-play:hover .video-play-icon { transform: none; }
   }
 
-  /* grade de depoimentos em vídeo (YouTube Shorts) */
+  /* depoimentos em vídeo (YouTube Shorts) — no mobile, carrossel de 1 vídeo por vez;
+     do tablet em diante, grade normal */
   .shorts-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.15rem 1rem;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 12%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-block: .15rem .6rem;
+    margin-block-end: -.6rem;
   }
-  @media (min-width: 620px) { .shorts-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .shorts-grid::-webkit-scrollbar { display: none; }
+  @media (prefers-reduced-motion: no-preference) { .shorts-grid { scroll-behavior: smooth; } }
+  @media (min-width: 620px) {
+    .shorts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      overflow: visible;
+      scroll-snap-type: none;
+      padding-block: 0;
+      margin-block-end: 0;
+    }
+  }
   @media (min-width: 980px) { .shorts-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.35rem; } }
-  .short-card { display: flex; flex-direction: column; gap: .6rem; margin: 0; }
+  .short-card {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    margin: 0;
+    flex: 0 0 76%;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+  @media (min-width: 620px) { .short-card { flex: initial; scroll-snap-align: none; } }
   .short {
     max-width: none;
     aspect-ratio: 9 / 16;
