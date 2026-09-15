@@ -1295,6 +1295,31 @@
     .video-play:hover .video-play-icon { transform: none; }
   }
 
+  /* grade de depoimentos em vídeo (YouTube Shorts) */
+  .shorts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.15rem 1rem;
+  }
+  @media (min-width: 620px) { .shorts-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 980px) { .shorts-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.35rem; } }
+  .short-card { display: flex; flex-direction: column; gap: .6rem; margin: 0; }
+  .short {
+    max-width: none;
+    aspect-ratio: 9 / 16;
+    box-shadow: var(--shadow);
+  }
+  .short .video-play-icon { width: 50px; height: 50px; }
+  .short .video-play-icon svg { width: 19px; height: 19px; margin-left: 2px; }
+  .short-card figcaption {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: .84rem;
+    letter-spacing: .01em;
+    color: var(--ink);
+    text-align: center;
+  }
+
   /* contadores animados */
   .count { font-variant-numeric: tabular-nums; }
   .count[data-count-to="17"] { display: inline-block; min-width: 2ch; text-align: right; }
@@ -1799,7 +1824,7 @@
         <p class="eyebrow">Assista</p>
         <h2>O Programa Advogado Aprendiz em poucos minutos</h2>
       </div>
-      <div class="video reveal" data-embed="https://www.youtube-nocookie.com/embed/t-GsafeCTdk?rel=0&amp;autoplay=1">
+      <div class="video reveal" data-embed="https://www.youtube-nocookie.com/embed/t-GsafeCTdk?rel=0&amp;autoplay=1" data-title="Apresentação do Programa Advogado Aprendiz">
         <button type="button" class="video-play"
           aria-label="Assistir à apresentação do Programa Advogado Aprendiz (abre o player do YouTube)">
           <span class="video-play-icon" aria-hidden="true">
@@ -2147,7 +2172,7 @@
     </div>
   </section>
 
-  <!-- ===================== CTA (antes de "O que muda para você") ===================== -->
+  <!-- ===================== CTA (antes de "Quem já fez") ===================== -->
   <section class="section section--tight cta-strip">
     <div class="wrap reveal">
       <p class="line">Cinco módulos, uma linha do tempo. É o que separa uma defesa sólida de uma tentativa.</p>
@@ -2155,6 +2180,105 @@
       <p class="cta-note">
         <svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" fill="currentColor"/></svg>
         Acesso imediato após a inscrição
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== PROVA SOCIAL ===================== -->
+  <section class="section section--tight" id="depoimentos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Quem já fez</p>
+        <h2>A diferença aparece na segurança de olhar para o processo</h2>
+      </div>
+
+      <div class="shorts-grid reveal">
+        <figure class="short-card">
+          <div class="video short" data-embed="https://www.youtube-nocookie.com/embed/_CmZ0AdI7yI?rel=0&amp;autoplay=1" data-title="Depoimento em vídeo — Amanda Leite">
+            <button type="button" class="video-play" style="background-image:url('https://i.ytimg.com/vi/_CmZ0AdI7yI/hqdefault.jpg')"
+              aria-label="Assistir ao depoimento de Amanda Leite (abre o player do YouTube)">
+              <span class="video-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+              </span>
+            </button>
+            <noscript>
+              <iframe src="https://www.youtube-nocookie.com/embed/_CmZ0AdI7yI?rel=0" title="Depoimento em vídeo — Amanda Leite"
+                width="405" height="720" referrerpolicy="strict-origin-when-cross-origin"
+                allow="encrypted-media; picture-in-picture; clipboard-write; web-share; fullscreen" allowfullscreen></iframe>
+            </noscript>
+          </div>
+          <figcaption>Amanda Leite</figcaption>
+        </figure>
+        <figure class="short-card">
+          <div class="video short" data-embed="https://www.youtube-nocookie.com/embed/s1LYXcmsBLE?rel=0&amp;autoplay=1" data-title="Depoimento em vídeo — Angélica Aguiar">
+            <button type="button" class="video-play" style="background-image:url('https://i.ytimg.com/vi/s1LYXcmsBLE/hqdefault.jpg')"
+              aria-label="Assistir ao depoimento de Angélica Aguiar (abre o player do YouTube)">
+              <span class="video-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+              </span>
+            </button>
+            <noscript>
+              <iframe src="https://www.youtube-nocookie.com/embed/s1LYXcmsBLE?rel=0" title="Depoimento em vídeo — Angélica Aguiar"
+                width="405" height="720" referrerpolicy="strict-origin-when-cross-origin"
+                allow="encrypted-media; picture-in-picture; clipboard-write; web-share; fullscreen" allowfullscreen></iframe>
+            </noscript>
+          </div>
+          <figcaption>Angélica Aguiar</figcaption>
+        </figure>
+        <figure class="short-card">
+          <div class="video short" data-embed="https://www.youtube-nocookie.com/embed/c954biCEtOk?rel=0&amp;autoplay=1" data-title="Depoimento em vídeo — Líbia Martins">
+            <button type="button" class="video-play" style="background-image:url('https://i.ytimg.com/vi/c954biCEtOk/hqdefault.jpg')"
+              aria-label="Assistir ao depoimento de Líbia Martins (abre o player do YouTube)">
+              <span class="video-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+              </span>
+            </button>
+            <noscript>
+              <iframe src="https://www.youtube-nocookie.com/embed/c954biCEtOk?rel=0" title="Depoimento em vídeo — Líbia Martins"
+                width="405" height="720" referrerpolicy="strict-origin-when-cross-origin"
+                allow="encrypted-media; picture-in-picture; clipboard-write; web-share; fullscreen" allowfullscreen></iframe>
+            </noscript>
+          </div>
+          <figcaption>Líbia Martins</figcaption>
+        </figure>
+        <figure class="short-card">
+          <div class="video short" data-embed="https://www.youtube-nocookie.com/embed/Pon4YUCt2Ic?rel=0&amp;autoplay=1" data-title="Depoimento em vídeo — Tamara Matos">
+            <button type="button" class="video-play" style="background-image:url('https://i.ytimg.com/vi/Pon4YUCt2Ic/hqdefault.jpg')"
+              aria-label="Assistir ao depoimento de Tamara Matos (abre o player do YouTube)">
+              <span class="video-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+              </span>
+            </button>
+            <noscript>
+              <iframe src="https://www.youtube-nocookie.com/embed/Pon4YUCt2Ic?rel=0" title="Depoimento em vídeo — Tamara Matos"
+                width="405" height="720" referrerpolicy="strict-origin-when-cross-origin"
+                allow="encrypted-media; picture-in-picture; clipboard-write; web-share; fullscreen" allowfullscreen></iframe>
+            </noscript>
+          </div>
+          <figcaption>Tamara Matos</figcaption>
+        </figure>
+        <figure class="short-card">
+          <div class="video short" data-embed="https://www.youtube-nocookie.com/embed/c4PhFhmANA8?rel=0&amp;autoplay=1" data-title="Depoimento em vídeo — Ednalva Neta">
+            <button type="button" class="video-play" style="background-image:url('https://i.ytimg.com/vi/c4PhFhmANA8/hqdefault.jpg')"
+              aria-label="Assistir ao depoimento de Ednalva Neta (abre o player do YouTube)">
+              <span class="video-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+              </span>
+            </button>
+            <noscript>
+              <iframe src="https://www.youtube-nocookie.com/embed/c4PhFhmANA8?rel=0" title="Depoimento em vídeo — Ednalva Neta"
+                width="405" height="720" referrerpolicy="strict-origin-when-cross-origin"
+                allow="encrypted-media; picture-in-picture; clipboard-write; web-share; fullscreen" allowfullscreen></iframe>
+            </noscript>
+          </div>
+          <figcaption>Ednalva Neta</figcaption>
+        </figure>
+      </div>
+      <p class="disclaimer">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 8h.01M11 12h1v4h1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Depoimentos sobre a experiência de aprendizado, publicados com autorização expressa. Em respeito
+        às normas de publicidade da OAB, não divulgamos resultado de processo, valor de causa ou
+        honorários.
       </p>
     </div>
   </section>
@@ -2225,43 +2349,6 @@
           </ul>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===================== PROVA SOCIAL ===================== -->
-  <section class="section section--tight" id="depoimentos">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Quem já fez</p>
-        <h2>A diferença aparece na segurança de olhar para o processo</h2>
-      </div>
-
-      <div class="quotes reveal">
-        <figure class="quote">
-          <span class="mark" aria-hidden="true">&ldquo;</span>
-          <p>Antes do curso, eu tinha receio só de olhar para uma execução fiscal. Hoje eu sei exatamente
-            o que procurar no processo antes de aceitar o caso.</p>
-          <cite>Dr. João P. &middot; Advogado</cite>
-        </figure>
-        <figure class="quote">
-          <span class="mark" aria-hidden="true">&ldquo;</span>
-          <p>A faculdade me deu a teoria, mas foi aqui que eu entendi como aplicar isso de verdade. Hoje
-            eu leio uma CDA sem travar.</p>
-          <cite>Ana &middot; estudante do 10º semestre</cite>
-        </figure>
-        <figure class="quote">
-          <span class="mark" aria-hidden="true">&ldquo;</span>
-          <p>O jeito como o curso organiza a linha do tempo tributária mudou completamente a forma como
-            eu analiso qualquer execução fiscal.</p>
-          <cite>Dra. Carla M. &middot; Advogada</cite>
-        </figure>
-      </div>
-      <p class="disclaimer">
-        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 8h.01M11 12h1v4h1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Depoimentos sobre a experiência de aprendizado, publicados com autorização expressa. Em respeito
-        às normas de publicidade da OAB, não divulgamos resultado de processo, valor de causa ou
-        honorários.
-      </p>
     </div>
   </section>
 
@@ -2551,22 +2638,23 @@
     });
   })();
 
-  /* Video facade — load the YouTube player only on click. */
+  /* Video facade — load the YouTube player only on click (herói + shorts de prova social). */
   (function () {
-    var box = document.querySelector(".video[data-embed]");
-    var btn = box && box.querySelector(".video-play");
-    if (!box || !btn) return;
-    btn.addEventListener("click", function () {
-      var f = document.createElement("iframe");
-      f.src = box.getAttribute("data-embed");
-      f.title = "Apresentação do Programa Advogado Aprendiz";
-      f.setAttribute("frameborder", "0");
-      f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
-      f.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture; clipboard-write; web-share; fullscreen");
-      f.setAttribute("allowfullscreen", "");
-      btn.remove();
-      box.appendChild(f);
-    }, { once: true });
+    document.querySelectorAll(".video[data-embed]").forEach(function (box) {
+      var btn = box.querySelector(".video-play");
+      if (!btn) return;
+      btn.addEventListener("click", function () {
+        var f = document.createElement("iframe");
+        f.src = box.getAttribute("data-embed");
+        f.title = box.getAttribute("data-title") || "Vídeo";
+        f.setAttribute("frameborder", "0");
+        f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+        f.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture; clipboard-write; web-share; fullscreen");
+        f.setAttribute("allowfullscreen", "");
+        btn.remove();
+        box.appendChild(f);
+      }, { once: true });
+    });
   })();
 
   /* Magnetic pull on buttons (fine pointer only). */

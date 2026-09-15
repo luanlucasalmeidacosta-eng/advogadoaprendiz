@@ -30,9 +30,11 @@ Motivo gráfico: lascas geométricas diagonais (SVG). Fio condutor estrutural:
       e no rodapé, ambos sobre fundo azul-marinho.
 - [x] **Foto da instrutora** — `assets/bianca-marques.jpg` no lugar das iniciais, no bloco
       de credibilidade do herói.
-- [ ] **Depoimentos** — os 3 da seção "Prova social" ainda são exemplos da copy. Só
-      publicar com autorização expressa e sem mencionar resultado de processo, valor de
-      causa ou honorários (publicidade OAB). Trocar por reais ou remover a seção.
+- [x] **Depoimentos** — seção "Prova social" (`#depoimentos`) trocada de citações-modelo
+      por 5 vídeos reais do YouTube Shorts (Amanda Leite, Angélica Aguiar, Líbia Martins,
+      Tamara Matos, Ednalva Neta), em grade responsiva com fachada de clique (só carrega
+      o player ao clicar). Sem menção a resultado de processo, valor de causa ou
+      honorários (publicidade OAB).
 
 ## Base técnica (SEO, compartilhamento, acessibilidade)
 
