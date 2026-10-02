@@ -50,7 +50,8 @@ fbq('track', 'PageView');
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preload" as="image" href="assets/logo-white.png" fetchpriority="high" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Mulish:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Mulish:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Mulish:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" /></noscript>
 
 <script type="application/ld+json">
 {
@@ -1149,7 +1150,44 @@ fbq('track', 'PageView');
     .mid-cta { padding: 40px 20px; }
     .mid-cta .mid-cta-title { font-size: 23px; }
   }
-  @media print { .urgency-bar { display: none !important; } }
+  @media print { .urgency-bar, .sticky-buy { display: none !important; } }
+
+  /* mobile: sem WebGL (economiza CPU/bateria) — faixas viram azul-marinho sólido */
+  @media (max-width: 768px) {
+    :root { --band-veil: var(--navy-deep); }
+    #gl { display: none; }
+  }
+
+  /* botão de compra fixo (só mobile) */
+  .sticky-buy { display: none; }
+  @media (max-width: 768px) {
+    .sticky-buy {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 900;
+      box-sizing: border-box;
+      padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+      background: #0b1030;
+      border-top: 1px solid rgba(200, 164, 90, .45);
+      box-shadow: 0 -8px 24px -12px rgba(0, 0, 0, .5);
+      transform: translateY(110%);
+      visibility: hidden;
+      transition: transform .3s var(--ease-out), visibility 0s linear .3s;
+    }
+    .sticky-buy.on { transform: none; visibility: visible; transition: transform .3s var(--ease-out), visibility 0s; }
+    .sticky-buy .sb-price { display: flex; flex-direction: column; line-height: 1.2; color: #fff; font-family: "Montserrat", sans-serif; }
+    .sticky-buy .sb-price b { font-size: 20px; font-weight: 700; }
+    .sticky-buy .sb-price span { font-size: 11px; color: #c8a45a; font-weight: 600; }
+    .sticky-buy .btn-buy.btn { width: auto; flex: none; padding: 13px 18px; font-size: 15px; }
+    body footer.site-foot { padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px)); }
+  }
+  @media (prefers-reduced-motion: reduce) { .sticky-buy, .sticky-buy.on { transition: none; } }
 
   /* ============ GUARANTEE ============ */
   .guarantee {
@@ -1373,7 +1411,6 @@ fbq('track', 'PageView');
     display: grid;
     place-items: center;
     background-color: var(--navy-deep);
-    background-image: url("assets/video-poster.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1886,6 +1923,10 @@ fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1661899818848676&amp;ev=PageView&amp;noscript=1" alt="" /></noscript>
 <canvas id="gl" aria-hidden="true"></canvas>
+<div class="sticky-buy" id="sticky-buy">
+  <div class="sb-price"><b>R$ 297,00</b><span>ou 10x de R$ 35,70</span></div>
+  <a class="btn btn--primary btn--lg btn-buy" href="https://pay.kiwify.com.br/eNDYzcG">Garantir minha vaga</a>
+</div>
 <a class="skip-link" href="#topo">Pular para o conteúdo</a>
 <div class="reading-progress" aria-hidden="true"></div>
 
@@ -1976,7 +2017,7 @@ fbq('track', 'PageView');
         <h2>O Programa Advogado Aprendiz em poucos minutos</h2>
       </div>
       <div class="video reveal" data-embed="https://www.youtube-nocookie.com/embed/t-GsafeCTdk?rel=0&amp;autoplay=1" data-title="Apresentação do Programa Advogado Aprendiz">
-        <button type="button" class="video-play"
+        <button type="button" class="video-play" data-bg="assets/video-poster.jpg"
           aria-label="Assistir à apresentação do Programa Advogado Aprendiz (abre o player do YouTube)">
           <span class="video-play-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
@@ -2359,7 +2400,7 @@ fbq('track', 'PageView');
       <div class="shorts-grid reveal">
         <figure class="short-card">
           <div class="video short" data-embed="https://www.youtube-nocookie.com/embed/_CmZ0AdI7yI?rel=0&amp;autoplay=1" data-title="Depoimento em vídeo — Amanda Leite">
-            <button type="button" class="video-play" style="background-image:url('https://i.ytimg.com/vi/_CmZ0AdI7yI/hqdefault.jpg')"
+            <button type="button" class="video-play" data-bg="https://i.ytimg.com/vi/_CmZ0AdI7yI/hqdefault.jpg"
               aria-label="Assistir ao depoimento de Amanda Leite (abre o player do YouTube)">
               <span class="video-play-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
@@ -2375,7 +2416,7 @@ fbq('track', 'PageView');
         </figure>
         <figure class="short-card">
           <div class="video short" data-embed="https://www.youtube-nocookie.com/embed/s1LYXcmsBLE?rel=0&amp;autoplay=1" data-title="Depoimento em vídeo — Angélica Aguiar">
-            <button type="button" class="video-play" style="background-image:url('https://i.ytimg.com/vi/s1LYXcmsBLE/hqdefault.jpg')"
+            <button type="button" class="video-play" data-bg="https://i.ytimg.com/vi/s1LYXcmsBLE/hqdefault.jpg"
               aria-label="Assistir ao depoimento de Angélica Aguiar (abre o player do YouTube)">
               <span class="video-play-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
@@ -2391,7 +2432,7 @@ fbq('track', 'PageView');
         </figure>
         <figure class="short-card">
           <div class="video short" data-embed="https://www.youtube-nocookie.com/embed/c954biCEtOk?rel=0&amp;autoplay=1" data-title="Depoimento em vídeo — Líbia Martins">
-            <button type="button" class="video-play" style="background-image:url('https://i.ytimg.com/vi/c954biCEtOk/hqdefault.jpg')"
+            <button type="button" class="video-play" data-bg="https://i.ytimg.com/vi/c954biCEtOk/hqdefault.jpg"
               aria-label="Assistir ao depoimento de Líbia Martins (abre o player do YouTube)">
               <span class="video-play-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
@@ -2407,7 +2448,7 @@ fbq('track', 'PageView');
         </figure>
         <figure class="short-card">
           <div class="video short" data-embed="https://www.youtube-nocookie.com/embed/Pon4YUCt2Ic?rel=0&amp;autoplay=1" data-title="Depoimento em vídeo — Tamara Matos">
-            <button type="button" class="video-play" style="background-image:url('https://i.ytimg.com/vi/Pon4YUCt2Ic/hqdefault.jpg')"
+            <button type="button" class="video-play" data-bg="https://i.ytimg.com/vi/Pon4YUCt2Ic/hqdefault.jpg"
               aria-label="Assistir ao depoimento de Tamara Matos (abre o player do YouTube)">
               <span class="video-play-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
@@ -2423,7 +2464,7 @@ fbq('track', 'PageView');
         </figure>
         <figure class="short-card">
           <div class="video short" data-embed="https://www.youtube-nocookie.com/embed/c4PhFhmANA8?rel=0&amp;autoplay=1" data-title="Depoimento em vídeo — Ednalva Neta">
-            <button type="button" class="video-play" style="background-image:url('https://i.ytimg.com/vi/c4PhFhmANA8/hqdefault.jpg')"
+            <button type="button" class="video-play" data-bg="https://i.ytimg.com/vi/c4PhFhmANA8/hqdefault.jpg"
               aria-label="Assistir ao depoimento de Ednalva Neta (abre o player do YouTube)">
               <span class="video-play-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
@@ -2828,6 +2869,33 @@ fbq('track', 'PageView');
     });
   })();
 
+  /* Capas dos vídeos: só baixa a imagem quando chega perto da tela. */
+  (function () {
+    var els = document.querySelectorAll("[data-bg]");
+    function load(e) { e.style.backgroundImage = 'url("' + e.getAttribute("data-bg") + '")'; e.removeAttribute("data-bg"); }
+    if (!("IntersectionObserver" in window)) { els.forEach(load); return; }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (x) { if (x.isIntersecting) { load(x.target); io.unobserve(x.target); } });
+    }, { rootMargin: "400px 0px" });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+
+  /* Botão de compra fixo (mobile): aparece depois do herói e some nas áreas que já têm preço/CTA. */
+  (function () {
+    var bar = document.getElementById("sticky-buy");
+    if (!bar || !("IntersectionObserver" in window)) return;
+    var hero = document.querySelector(".hero");
+    var zones = document.querySelectorAll("#oferta, .mid-cta, .final");
+    var heroVisible = true, inZone = new Set();
+    function update() { bar.classList.toggle("on", !heroVisible && inZone.size === 0); }
+    new IntersectionObserver(function (es) { heroVisible = es[0].isIntersecting; update(); }).observe(hero);
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { e.isIntersecting ? inZone.add(e.target) : inZone.delete(e.target); });
+      update();
+    });
+    zones.forEach(function (z) { io.observe(z); });
+  })();
+
   /* Video facade — load the YouTube player only on click (herói + shorts de prova social). */
   (function () {
     document.querySelectorAll(".video[data-embed]").forEach(function (box) {
@@ -2908,6 +2976,8 @@ fbq('track', 'PageView');
     grain: 0.018, grainAnim: 0, dither: 0.58, vignette: 0.21,
     steer: -0.13, lift: 0.11, sweep: 0.5, cursor: 1, parallax: 0.0137, maxDpr: 1
   };
+
+  if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) return;   // mobile: sem WebGL
 
   const canvas = document.getElementById('gl');
   const gl = canvas && canvas.getContext('webgl2', { alpha: false, antialias: false, depth: false, stencil: false, powerPreference: 'high-performance' });
