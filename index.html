@@ -284,14 +284,38 @@ fbq('track', 'PageView');
 
   .section {
     padding-block: clamp(3.5rem, 9vw, 6.5rem);
-    scroll-margin-top: 6.5rem;
+    scroll-margin-top: calc(6.5rem + var(--bar-h, 0px));
   }
 
   /* seções claras ficam opacas — o gradiente animado só aparece nas faixas azul-marinho */
   #video, #dor, #professora, #modulos,
-  #depoimentos, #para-quem-nao, #garantia, #faq {
+  #depoimentos, #para-quem-nao, #faq {
     position: relative;
     background: var(--ground);
+  }
+  #garantia { scroll-margin-top: calc(6.5rem + var(--bar-h, 0px)); }
+
+  /* ============ BARRA DE URGÊNCIA (topo) ============ */
+  :root { --bar-h: 40px; }
+  body { padding-top: var(--bar-h); }
+  .urgency-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    box-sizing: border-box;
+    background: #c8a45a;
+    color: #0b1030;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.35;
+    text-align: center;
+    padding: 10px 16px;
+  }
+  @media (max-width: 768px) {
+    .urgency-bar { font-size: 11px; padding: 8px 12px; }
   }
 
   .section--tight { padding-block: clamp(2.75rem, 6vw, 4rem); }
@@ -327,7 +351,7 @@ fbq('track', 'PageView');
   /* ============ HEADER ============ */
   .site {
     position: sticky;
-    top: 0;
+    top: var(--bar-h, 0px);
     z-index: 50;
     background: color-mix(in srgb, var(--navy-deep) 90%, transparent);
     backdrop-filter: blur(10px);
@@ -1096,6 +1120,37 @@ fbq('track', 'PageView');
   .bonus-value .bonus-free { font-weight: 800; font-size: 1.02rem; color: var(--navy-bright); }
   .bonus-note { margin: 0; font-size: .74rem; line-height: 1.4; color: var(--on-navy-dim); opacity: .85; }
 
+  /* card de preço destacado + CTA intermediário */
+  .offer-buy { display: flex; flex-direction: column; gap: 1.25rem; width: 100%; max-width: 480px; margin-inline: auto; }
+  .offer-buy .price-card { max-width: none; width: 100%; }
+  .price-card { background: #0b1030; border-radius: 16px; padding: 40px; gap: 0; }
+  .price-card .old { font-size: 18px; margin-top: 1.1rem; text-decoration: none; color: #b8bdd0; }
+  .price-card .old s { text-decoration-thickness: 1px; }
+  .price-card .now { font-size: 52px; font-weight: 700; letter-spacing: -.01em; margin-top: .35rem; color: #fff; }
+  .price-card .split { font-size: 16px; color: #c8a45a; margin: .5rem 0 1.5rem; }
+  .btn-buy.btn { width: 100%; background: #2ecc71; color: #fff; font-size: 18px; font-weight: 700; padding: 18px 40px; border-radius: 8px; box-shadow: none; }
+  .btn-buy.btn::before { display: none; }
+  .btn-buy.btn:hover { background: #2ecc71; filter: brightness(.9); box-shadow: none; }
+  .buy-meta { margin: 1rem 0 0; font-size: 13px; line-height: 1.5; text-align: center; color: #b8bdd0; }
+  .offer-buy .guarantee { grid-template-columns: 1fr; justify-items: start; }
+  .offer-buy .seal { width: 64px; height: 64px; }
+  .offer-buy .seal svg { width: 32px; height: 32px; }
+  .mid-cta { position: relative; background: #0b1030; padding: 48px 24px; text-align: center; color: #fff; }
+  .mid-cta .wrap { display: flex; flex-direction: column; align-items: center; }
+  .mid-cta .mid-cta-title { font-size: 28px; font-weight: 600; letter-spacing: 0; color: #fff; margin: 0; text-wrap: balance; }
+  .mid-cta .mid-sub { font-size: 15px; color: #c8a45a; margin: .6rem 0 0; }
+  .mid-cta .mid-old { font-size: 16px; color: #b8bdd0; text-decoration: line-through; margin: 1.4rem 0 0; }
+  .mid-cta .mid-now { font-family: "Montserrat", sans-serif; font-size: 36px; font-weight: 700; color: #fff; line-height: 1.1; margin: .15rem 0 0; }
+  .mid-cta .mid-split { font-size: 14px; color: #c8a45a; margin: .35rem 0 1.4rem; }
+  .mid-cta .btn-buy.btn { max-width: 420px; }
+  @media (max-width: 768px) {
+    .price-card { padding: 32px 24px; }
+    .price-card .now { font-size: 46px; }
+    .mid-cta { padding: 40px 20px; }
+    .mid-cta .mid-cta-title { font-size: 23px; }
+  }
+  @media print { .urgency-bar { display: none !important; } }
+
   /* ============ GUARANTEE ============ */
   .guarantee {
     display: grid;
@@ -1409,7 +1464,7 @@ fbq('track', 'PageView');
   /* barra de progresso de leitura */
   .reading-progress {
     position: fixed;
-    top: 0;
+    top: var(--bar-h, 0px);
     left: 0;
     right: 0;
     height: 3px;
@@ -1819,6 +1874,16 @@ fbq('track', 'PageView');
 </style></noscript>
 </head>
 <body>
+<div class="urgency-bar" role="status">Turma aberta · Vagas limitadas · Bônus Kit Primeiro Caso incluso apenas neste lançamento</div>
+<script>
+(function () {
+  var bar = document.querySelector(".urgency-bar");
+  function set() { document.documentElement.style.setProperty("--bar-h", bar.offsetHeight + "px"); }
+  set();
+  window.addEventListener("resize", set);
+  window.addEventListener("load", set);
+})();
+</script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1661899818848676&amp;ev=PageView&amp;noscript=1" alt="" /></noscript>
 <canvas id="gl" aria-hidden="true"></canvas>
 <a class="skip-link" href="#topo">Pular para o conteúdo</a>
@@ -2258,6 +2323,19 @@ fbq('track', 'PageView');
     </div>
   </section>
 
+  <!-- ===================== CTA INTERMEDIÁRIO (após os módulos) ===================== -->
+  <section class="mid-cta">
+    <div class="wrap">
+      <h2 class="mid-cta-title">Pronto para dominar a prática tributária?</h2>
+      <p class="mid-sub">Acesso imediato após a inscrição.</p>
+      <p class="mid-old">De R$ 997,00</p>
+      <p class="mid-now">R$ 297,00</p>
+      <p class="mid-split">ou 10x de R$ 35,70</p>
+      <a class="btn btn--primary btn--lg btn-buy" href="https://pay.kiwify.com.br/eNDYzcG">Garantir minha vaga agora</a>
+      <p class="buy-meta">🔒 Pagamento seguro &middot; Acesso imediato &middot; 7 dias de garantia</p>
+    </div>
+  </section>
+
   <!-- ===================== CTA (antes de "Quem já fez") ===================== -->
   <section class="section section--tight cta-strip">
     <div class="wrap reveal">
@@ -2533,6 +2611,7 @@ fbq('track', 'PageView');
           </ul>
         </div>
 
+        <div class="offer-buy">
         <div class="price-card reveal">
           <div class="facets" aria-hidden="true">
             <svg viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -2574,34 +2653,27 @@ fbq('track', 'PageView');
             <p class="bonus-note">Bônus exclusivo para quem se inscrever durante o lançamento.</p>
           </div>
 
-          <span class="old">De R$ 997,00</span>
-          <span class="now"><small>por apenas</small>R$ 297,00</span>
-          <span class="split">(ou 10x de R$ 35,70)</span>
-          <a class="btn btn--primary btn--lg" href="https://pay.kiwify.com.br/eNDYzcG">Quero garantir minha vaga agora</a>
-          <p class="fine">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" fill="currentColor"/></svg>
-            Acesso imediato &middot; vitalício &middot; 7 dias de garantia
-          </p>
+          <span class="old">De <s>R$ 997,00</s></span>
+          <span class="now">R$ 297,00</span>
+          <span class="split">ou 10x de R$ 35,70</span>
+          <a class="btn btn--primary btn--lg btn-buy" href="https://pay.kiwify.com.br/eNDYzcG">Garantir minha vaga agora</a>
+          <p class="fine buy-meta">🔒 Pagamento seguro &middot; Acesso imediato &middot; 7 dias de garantia</p>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===================== GARANTIA ===================== -->
-  <section class="section" id="garantia">
-    <div class="wrap">
-      <div class="guarantee reveal">
-        <span class="seal" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 5-3 8-7 10-4-2-7-5-7-10V5l7-3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        <div>
-          <p class="eyebrow" style="margin-bottom:.6rem">Risco zero</p>
-          <h3>7 dias para experimentar por dentro</h3>
-          <p>Você tem 7 dias corridos, contados da confirmação da inscrição, para acessar o conteúdo e
-            decidir se o curso é para você &mdash; o direito de arrependimento do art. 49 do Código de Defesa
-            do Consumidor, aplicável a compras online.</p>
-          <p>Se entender que não é o que precisa agora, basta solicitar o cancelamento e reembolso &mdash; sem
-            burocracia, sem perguntas. Você só decide depois de ver o conteúdo.</p>
+        <div class="guarantee reveal" id="garantia">
+          <span class="seal" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l7 3v6c0 5-3 8-7 10-4-2-7-5-7-10V5l7-3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div>
+            <p class="eyebrow" style="margin-bottom:.6rem">Risco zero</p>
+            <h3>7 dias para experimentar por dentro</h3>
+            <p>Você tem 7 dias corridos, contados da confirmação da inscrição, para acessar o conteúdo e
+              decidir se o curso é para você &mdash; o direito de arrependimento do art. 49 do Código de Defesa
+              do Consumidor, aplicável a compras online.</p>
+            <p>Se entender que não é o que precisa agora, basta solicitar o cancelamento e reembolso &mdash; sem
+              burocracia, sem perguntas. Você só decide depois de ver o conteúdo.</p>
+          </div>
+        </div>
         </div>
       </div>
     </div>
